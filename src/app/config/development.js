@@ -1,3 +1,3 @@
-angular.module('wisboo').constant('configuration', {
+angular.module('librarium').constant('configuration', {
 
 });

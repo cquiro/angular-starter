@@ -1,4 +1,4 @@
-angular.module('wisboo').config([
+angular.module('librarium').config([
   '$translateProvider',
   function ($translateProvider)  {
 

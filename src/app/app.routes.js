@@ -126,6 +126,6 @@ angular.module('librarium').config([
 
 // Temporary controller to see the param id on books and users show pages.
 // It will be removed or replaced as new features are developed.
-angular.module('librarium').controller('idController', function ($stateParams, $scope) {
+angular.module('librarium').controller('idController', ['$stateParams', '$scope', function ($stateParams, $scope) {
   $scope.id = $stateParams.id;
-});
+}]);

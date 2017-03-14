@@ -29,13 +29,13 @@ html(lang="en")
       nav.navbar.navbar-default
         .container
           .navbar-header
-            a(href="/").navbar-brand Librarium
+            a(ui-sref='books').navbar-brand Librarium
           ul.nav.navbar-nav.navbar-right
-            li: a(href="#")
+            li: a(ui-sref='books')
               i.fa.fa-home
             li: a(href="#") My Books
-            li: a(href="#") Log In
-            li: a(href="#") Sign Up
+            li: a(ui-sref='login') Log In
+            li: a(ui-sref='signup') Sign Up
 
     .container-fluid(ui-view="main")
     // inject:js

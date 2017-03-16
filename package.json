@@ -5,7 +5,7 @@
     "node": "4.4.0",
     "npm": "3.6.0"
   },
-  "description": "Frontend application of wisboo",
+  "description": "Frontend application of librarium",
   "scripts": {
     "start": "node_modules/.bin/gulp production",
     "postinstall": "bower install",

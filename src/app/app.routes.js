@@ -1,4 +1,4 @@
-angular.module('wisboo').config([
+angular.module('librarium').config([
   '$stateProvider', '$urlRouterProvider', '$locationProvider',
   function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $urlRouterProvider.otherwise( ($injector) => {

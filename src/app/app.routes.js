@@ -94,14 +94,6 @@ angular.module('librarium').config([
           }
         }
       })
-      .state('user.following', {
-        url: '/following',
-        templateUrl: '../app/components/users/following.html'
-      })
-      .state('user.followers', {
-        url: '/followers',
-        templateUrl: '../app/components/users/followers.html'
-      })
       .state('user.favorite_books', {
         url: '/favorite_books',
         templateUrl: '../app/components/users/favorite_books.html'

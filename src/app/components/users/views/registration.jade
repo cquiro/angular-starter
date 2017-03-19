@@ -1,0 +1,36 @@
+div.container
+  div.panel.panel-default
+    div.panel-heading
+      h2.text-center
+        | Join Librarium!
+    form.panel-body
+      div.form-group
+        label(for="inputName")
+          | Name
+        input(type="text").form-control(placeholder="Name",
+                                        aria-describedby="basic-addon1",
+                                        id="inputName")
+
+      div.form-group
+        label(for="inputEmail")
+          | Email
+        input(type="email").form-control(placeholder="Email",
+                                         aria-describedby="basic-addon1",
+                                         id="inputEmail")
+
+      div.form-group
+        label(for='inputPassword')
+          | Password
+        input(type="password").form-control(placeholder="Password",
+                                            aria-describedby="basic-addon1",
+                                            id="inputPassword")
+
+      div.form-group
+        label(for="inputPasswordConfirmation")
+          | Password Confirmation
+        input(type="password").form-control(placeholder="Password (again)",
+                                            aria-describedby="basic-addon1",
+                                            id="inputPasswordConfirmation")
+
+      button(type="submit").btn.btn-blue.btn-md
+        | Sign Up

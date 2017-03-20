@@ -1,6 +1,7 @@
 angular.module(
   'librarium', [
     'ui.router',
-    'pascalprecht.translate'
+    'pascalprecht.translate',
+    'restangular'
   ]
 );

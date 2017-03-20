@@ -1,36 +1,47 @@
 div.container
-  div.panel.panel-default
+  div.panel.panel-default(ng-controller="RegistrationController as regCtrl")
     div.panel-heading
       h2.text-center
         | Join Librarium!
-    form.panel-body
+    form.panel-body(ng-submit="regCtrl.submitForm()")
       div.form-group
         label(for="inputName")
           | Name
-        input(type="text").form-control(placeholder="Name",
-                                        aria-describedby="basic-addon1",
-                                        id="inputName")
+        input.form-control(type="text",
+                           placeholder="Name",
+                           aria-describedby="basic-addon1",
+                           id="inputName",
+                           ng-model="regCtrl.form.name")
 
       div.form-group
         label(for="inputEmail")
           | Email
-        input(type="email").form-control(placeholder="Email",
-                                         aria-describedby="basic-addon1",
-                                         id="inputEmail")
+        input.form-control(type="email",
+                           placeholder="Email",
+                           aria-describedby="basic-addon1",
+                           id="inputEmail",
+                           ng-model="regCtrl.form.email")
 
       div.form-group
         label(for='inputPassword')
           | Password
-        input(type="password").form-control(placeholder="Password",
-                                            aria-describedby="basic-addon1",
-                                            id="inputPassword")
+        input.form-control(type="password",
+                             placeholder="Password",
+                             aria-describedby="basic-addon1",
+                             id="inputPassword",
+                             ng-model="regCtrl.form.password")
 
       div.form-group
         label(for="inputPasswordConfirmation")
           | Password Confirmation
-        input(type="password").form-control(placeholder="Password (again)",
-                                            aria-describedby="basic-addon1",
-                                            id="inputPasswordConfirmation")
+        input.form-control(type="password",
+                           placeholder="Password (again)",
+                           aria-describedby="basic-addon1",
+                           id="inputPasswordConfirmation",
+                           ng-model="regCtrl.form.passwordConfirmation")
 
-      button(type="submit").btn.btn-blue.btn-md
+      button.btn.btn-blue.btn-md(type="submit")
         | Sign Up
+
+    pre
+      | {{ regCtrl.form }}

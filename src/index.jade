@@ -1,7 +1,7 @@
 doctype html
 html(lang="en")
   head
-    title Wisboo starter
+    title Librarium
     meta(charset="UTF-8")
     meta(
       name="viewport"
@@ -25,6 +25,26 @@ html(lang="en")
     link(href="/css/all.css", rel="stylesheet")
     base(href="/")
   body(ng-app="librarium")
+    header
+      nav.navbar.navbar-default
+        .container
+          .navbar-header
+            a.navbar-brand(href="/")
+              | Librarium
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href="#")
+                i.fa.fa-home
+            li
+              a(href="#")
+                | My Books
+            li
+              a(href="#")
+                | Log In
+            li
+              a(href="#") 
+                | Sign Up
+
     .container-fluid(ui-view="main")
     // inject:js
     // endinject

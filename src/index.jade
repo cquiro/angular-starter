@@ -29,14 +29,21 @@ html(lang="en")
       nav.navbar.navbar-default
         .container
           .navbar-header
-            a(ui-sref='books').navbar-brand Librarium
+            a.navbar-brand(ui-sref='books')
+              | Librarium
           ul.nav.navbar-nav.navbar-right
-            li: a(ui-sref='books')
-              i.fa.fa-home
-            li: a(href="#") My Books
-            li: a(ui-sref='login') Log In
-            li: a(ui-sref='signup') Sign Up
-
+            li
+              a(ui-sref='books')
+                i.fa.fa-home
+            li
+              a(href='#')
+                | My Books
+            li
+              a(ui-sref='login')
+                | Log In
+            li
+              a(ui-sref='signup') 
+                | Sign Up
     .container-fluid(ui-view="main")
     // inject:js
     // endinject

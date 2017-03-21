@@ -35,7 +35,7 @@ angular.module('librarium').config([
         views: {
           main: {
             templateUrl: '../app/components/books/show.html',
-            controller: 'idController'
+            controller: 'TemporaryIdController as ctrlBookId'
           },
           'comments@book': {
             templateUrl: '../app/components/comments/index.html'
@@ -50,14 +50,6 @@ angular.module('librarium').config([
         views: {
           main: {
             templateUrl: '../app/components/books/edit.html'
-          }
-        }
-      })
-      .state('edit_comment', {
-        url: '/comments/:id/edit',
-        views: {
-          main: {
-            templateUrl: '../app/components/comments/edit.html'
           }
         }
       })
@@ -85,22 +77,22 @@ angular.module('librarium').config([
           }
         }
       })
+      .state('edit_user', {
+        url: '/users/edit',
+        views: {
+          main: {
+            templateUrl: '../app/components/users/edit.html'
+          }
+        }
+      })
       .state('user', {
         url: '/users/:id',
         views: {
           main: {
             templateUrl: '../app/components/users/show.html',
-            controller: 'idController'
+            controller: 'TemporaryIdController as ctrlUserId'
           }
         }
-      })
-      .state('user.following', {
-        url: '/following',
-        templateUrl: '../app/components/users/following.html'
-      })
-      .state('user.followers', {
-        url: '/followers',
-        templateUrl: '../app/components/users/followers.html'
       })
       .state('user.favorite_books', {
         url: '/favorite_books',
@@ -109,15 +101,6 @@ angular.module('librarium').config([
       .state('user.wish_list', {
         url: '/wish_list',
         templateUrl: '../app/components/users/wish_list.html'
-      })
-      .state('edit_user', {
-        url: '/users/:id/edit',
-        views: {
-          main: {
-            templateUrl: '../app/components/users/edit.html',
-            controller: 'idController'
-          }
-        }
       });
 
     $locationProvider.html5Mode(true);
@@ -126,6 +109,6 @@ angular.module('librarium').config([
 
 // Temporary controller to see the param id on books and users show pages.
 // It will be removed or replaced as new features are developed.
-angular.module('librarium').controller('idController', ['$stateParams', '$scope', function ($stateParams, $scope) {
-  $scope.id = $stateParams.id;
+angular.module('librarium').controller('TemporaryIdController', ['$stateParams', function ($stateParams) {
+  this.id = $stateParams.id;
 }]);

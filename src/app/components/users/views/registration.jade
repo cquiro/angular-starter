@@ -3,47 +3,83 @@ div.container
     div.panel-heading
       h2.text-center
         | Join Librarium!
-    form.panel-body(ng-submit="regCtrl.submitForm()")
+    form.panel-body(name="registrationForm",
+                    ng-submit="regCtrl.submitForm(registrationForm.$valid)",
+                    novalidate)
+
       div.alert-danger.text-center(ng-show="regCtrl.message")
         | {{ regCtrl.message }}
 
-      div.form-group
+      div.form-group(ng-class="{ 'has-error': registrationForm.name.$invalid && !registrationForm.name.$pristine }")
         label(for="inputName")
           | Name
         input.form-control(type="text",
+                           name="name",
                            placeholder="Name",
                            aria-describedby="basic-addon1",
                            id="inputName",
-                           ng-model="regCtrl.form.name")
+                           ng-model="regCtrl.form.name",
+                           required)
+        p.help-block(ng-show="registrationForm.name.$invalid && !registrationForm.name.$pristine")
+          | Your name is required
 
-      div.form-group
+      div.form-group(ng-class="{ 'has-error': registrationForm.email.$invalid && !registrationForm.email.$pristine }")
         label(for="inputEmail")
           | Email
         input.form-control(type="email",
+                           name="email",
                            placeholder="Email",
                            aria-describedby="basic-addon1",
                            id="inputEmail",
-                           ng-model="regCtrl.form.email")
+                           ng-model="regCtrl.form.email",
+                           required)
+        p.help-block(ng-show="registrationForm.email.$invalid && !registrationForm.email.$pristine")
+          | Email is required. Enter a valid email
 
-      div.form-group
+      div.form-group(ng-class="{ 'has-error': registrationForm.password.$invalid && !registrationForm.password.$pristine }")
         label(for='inputPassword')
           | Password
         input.form-control(type="password",
-                             placeholder="Password",
-                             aria-describedby="basic-addon1",
-                             id="inputPassword",
-                             ng-model="regCtrl.form.password")
+                           name="password",
+                           placeholder="Password",
+                           aria-describedby="basic-addon1",
+                           id="inputPassword",
+                           ng-model="regCtrl.form.password",
+                           ng-minlength="6",
+                           ng-maxlength="128",
+                           required)
+        p.help-block(ng-show="registrationForm.password.$error.minlength")
+          | Password is too short
+        p.help-block(ng-show="registrationForm.password.$error.maxlength")
+          | Password is too long
+        p.help-block(ng-show="registrationForm.password.$error.required && !registrationForm.password.$pristine")
+          | Password is required
 
-      div.form-group
+      div.form-group(ng-class="{ 'has-error': registrationForm.passwordConf.$invalid && !registrationForm.passwordConf.$pristine }")
         label(for="inputPasswordConfirmation")
           | Password Confirmation
         input.form-control(type="password",
+                           name="passwordConf",
                            placeholder="Password (again)",
                            aria-describedby="basic-addon1",
                            id="inputPasswordConfirmation",
-                           ng-model="regCtrl.form.password_confirmation")
+                           pw-check="inputPassword",
+                           ng-model="regCtrl.form.password_confirmation",
+                           ng-minlength="6",
+                           ng-maxlength="128",
+                           required)
+        p.help-block(ng-show="registrationForm.passwordConf.$error.minlength")
+          | Password is too short
+        p.help-block(ng-show="registrationForm.passwordConf.$error.maxlength")
+          | Password is too long
+        p.help-block(ng-show="registrationForm.passwordConf.$error.required && !registrationForm.passwordConf.$pristine")
+          | Password Confirmation is required 
+        p.help-block(ng-show="registrationForm.passwordConf.$error.pwmatch")
+          | Password and Password Confirmation don't match
 
-      button.btn.btn-blue.btn-md(type="submit")
+
+      button.btn.btn-blue.btn-md(type="submit",
+                                 ng-disabled="registrationForm.$invalid")
         | Sign Up
 
     pre

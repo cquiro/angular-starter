@@ -1,17 +1,20 @@
 angular.module('librarium')
-  .controller('RegistrationController', ['Restangular', function (Restangular) {
+  .controller('RegistrationController', ['Restangular', '$state', function (Restangular, $state) {
     const self = this;
 
     self.form = {};
 
     const newUser = { user: self.form };
 
-    self.submitForm = function () {
-      Restangular.all('users').post(newUser).then(function (user) {
-        console.log(user);
-      }, function (errors) {
-        self.message = errors.statusText;
-      });
+    self.submitForm = function (isValid) {
+      if (isValid) {
+        Restangular.all('users').post(newUser).then(function (user) {
+          console.log(user);
+          $state.go('books');
+        }, function (errors) {
+          self.message = errors.statusText;
+        });
+      }
     };
 
     // self.submitForm = function () {

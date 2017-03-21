@@ -6,10 +6,6 @@ angular.module('librarium')
 
     const newUser = { user: self.form };
 
-
-    // RestangularProvider.setBaseUrl('http://localhost:3000');
-    // const baseUsers = Restangular.all('users');
-
     self.submitForm = function () {
       Restangular.all('users').post(newUser).then(function (user) {
         console.log(user);

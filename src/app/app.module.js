@@ -6,6 +6,6 @@ angular.module(
   ]
 );
 
-angular.module('librarium').config(function(RestangularProvider) {
+angular.module('librarium').config(function (RestangularProvider) {
   RestangularProvider.setBaseUrl('http://localhost:3000');
 });

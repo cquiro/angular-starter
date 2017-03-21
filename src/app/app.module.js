@@ -3,6 +3,8 @@ angular.module(
     'ui.router',
     'restangular',
     'pascalprecht.translate',
+    'permission',
+    'permission.ui',
     'librarium.directives'
   ]
 );

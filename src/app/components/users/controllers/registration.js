@@ -8,15 +8,15 @@ angular.module('librarium')
 
 
     // RestangularProvider.setBaseUrl('http://localhost:3000');
-    const baseUsers = Restangular.all('users');
+    // const baseUsers = Restangular.all('users');
 
     self.submitForm = function () {
-      baseUsers.post(newUser);
+      Restangular.all('users').post(newUser).then(function (user) {
+        console.log(user);
+      }, function (errors) {
+        self.message = errors.statusText;
+      });
     };
-
-    // const self = this;
-
-    // self.form = {};
 
     // self.submitForm = function () {
     //   $http({

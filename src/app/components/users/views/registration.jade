@@ -4,6 +4,9 @@ div.container
       h2.text-center
         | Join Librarium!
     form.panel-body(ng-submit="regCtrl.submitForm()")
+      div.alert-danger.text-center(ng-show="regCtrl.message")
+        | {{ regCtrl.message }}
+
       div.form-group
         label(for="inputName")
           | Name

@@ -1,7 +1,11 @@
 angular.module(
   'librarium', [
     'ui.router',
-    'pascalprecht.translate',
-    'restangular'
+    'restangular',
+    'pascalprecht.translate'
   ]
 );
+
+angular.module('librarium').config(function(RestangularProvider) {
+  RestangularProvider.setBaseUrl('http://localhost:3000');
+});

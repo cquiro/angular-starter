@@ -1,5 +1,19 @@
 angular.module('librarium')
   .controller('RegistrationController', ['Restangular', function (Restangular) {
+    const self = this;
+
+    self.form = {};
+
+    const newUser = { user: self.form };
+
+
+    // RestangularProvider.setBaseUrl('http://localhost:3000');
+    const baseUsers = Restangular.all('users');
+
+    self.submitForm = function () {
+      baseUsers.post(newUser);
+    };
+
     // const self = this;
 
     // self.form = {};

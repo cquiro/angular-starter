@@ -1,7 +1,6 @@
 angular.module('librarium')
   .factory('dataService',
     ['Restangular', function (Restangular) {
-
       const urlBase = '/users';
       const dataService = {};
 

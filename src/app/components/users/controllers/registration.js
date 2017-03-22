@@ -1,12 +1,10 @@
 angular.module('librarium')
   .controller('RegistrationController',
     ['dataService', '$state', function (dataService, $state) {
-
       const self = this;
+      const newUser = { user: self.form };
 
       self.form = {};
-
-      const newUser = { user: self.form };
 
       self.submitForm = function (isValid) {
         if (isValid) {

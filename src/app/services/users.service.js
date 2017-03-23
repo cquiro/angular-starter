@@ -10,7 +10,8 @@ angular.module('librarium')
           .then(function (user) {
             Session.create(user.id, user.name, user.admin,
                            user.authentication_token);
-            console.log(Session);
+            UserPersistence.setCookieData(JSON.stringify(Session.session));
+            // console.log(UserPersistence.getCookieData());
           });
       };
 

@@ -1,18 +1,12 @@
-angular.module('librarium').run(function (PermPermissionStore, PermRoleStore) {
-  PermPermissionStore.definePermission('loginOrSignup', function () {
-    return true;
-  });
-
-  PermPermissionStore.definePermission('noLoginOrSignup', function () {
-    return false;
-  });
-
+angular.module('librarium').run(function (PermRoleStore, Session) {
   // logged in users
-  PermRoleStore.defineRole('USER', ['noLoginOrSignup']);
+  PermRoleStore.defineRole('USER', []);
   // logged out users
-  PermRoleStore.defineRole('ANONYMOUS', ['loginOrSignup']);
+  PermRoleStore.defineRole('ANONYMOUS', function () {
+    return !Session.loggedin;
+  });
   // // logged in users who are admins
-  PermRoleStore.defineRole('ADMIN', ['noLoginOrSignup']);
+  PermRoleStore.defineRole('ADMIN', []);
   // logged in users who are not admins
-  PermRoleStore.defineRole('BASIC', ['noLoginOrSignup']);
+  PermRoleStore.defineRole('BASIC', []);
 });

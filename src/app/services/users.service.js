@@ -1,13 +1,13 @@
 angular.module('librarium')
-  .factory('dataService',
+  .factory('UsersService',
     ['Restangular', function (Restangular) {
 
       const urlBase = '/users';
-      const dataService = {};
+      const usersService = {};
 
-      dataService.addUser = function (newUser) {
+      usersService.addUser = function (newUser) {
         return Restangular.all(urlBase).post(newUser);
       };
 
-      return dataService;
+      return usersService;
     }]);

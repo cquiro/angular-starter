@@ -4,5 +4,6 @@ module.exports = [
   'angular-translate/angular-translate.js',
   'lodash/lodash.js',
   'restangular/src/restangular.js',
-  'jquery/dist/jquery.min.js'
+  'jquery/dist/jquery.min.js',
+  'angular-messages/angular-messages.min.js'
 ];

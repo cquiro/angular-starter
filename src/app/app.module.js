@@ -3,7 +3,8 @@ angular.module(
     'ui.router',
     'restangular',
     'pascalprecht.translate',
-    'librarium.directives'
+    'librarium.directives',
+    'ngMessages'
   ]
 );
 

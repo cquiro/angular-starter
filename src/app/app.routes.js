@@ -57,7 +57,9 @@ angular.module('librarium').config([
         url: '/signup',
         views: {
           main: {
-            templateUrl: '../app/components/users/views/registration.html'
+            templateUrl: '../app/components/users/views/registration.html',
+            controller: 'RegistrationController',
+            controllerAs: 'regCtrl'
           }
         }
       })

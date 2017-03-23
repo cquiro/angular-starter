@@ -1,10 +1,10 @@
 angular.module('librarium')
-  .factory('dataService',
+  .factory('UsersService',
     ['Restangular', 'Session', function (Restangular, Session) {
       const urlBase = '/users';
-      const dataService = {};
+      const usersService = {};
 
-      dataService.addUser = function (newUser) {
+      usersService.addUser = function (newUser) {
         return Restangular.all(urlBase)
           .post(newUser)
           .then(function (user) {
@@ -14,5 +14,5 @@ angular.module('librarium')
           });
       };
 
-      return dataService;
+      return usersService;
     }]);

@@ -14,7 +14,6 @@ var localConfig = {
   src: function() {
     return ['./src/app/app.module.js',
         './src/**/*.js',
-        './src/**/**/**/**/*.js',
         '!./src/app/config/!(' + globalConfig.environment + '.js)'];
   },
   dest: function () {

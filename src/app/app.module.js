@@ -5,7 +5,8 @@ angular.module(
     'pascalprecht.translate',
     'permission',
     'permission.ui',
-    'librarium.directives'
+    'librarium.directives',
+    'ngMessages'
   ]
 );
 

@@ -6,5 +6,6 @@ module.exports = [
   'restangular/src/restangular.js',
   'jquery/dist/jquery.min.js',
   'angular-permission/dist/angular-permission.min.js',
-  'angular-permission/dist/angular-permission-ui.min.js'
+  'angular-permission/dist/angular-permission-ui.min.js',
+  'angular-messages/angular-messages.min.js'
 ];

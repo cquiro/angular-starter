@@ -1,14 +1,16 @@
 angular.module('librarium')
   .factory('AuthService',
-    ['Restangular', function (Restangular) {
-      const urlBase = '/users/sign_in';
+    ['Restangular', 'Session', function (Restangular, Session) {
+      const loginUrl = '/users/sign_in';
       const authService = {};
 
       authService.login = function (credentials) {
-        return Restangular.all(urlBase)
+        return Restangular.all(loginUrl)
           .post(credentials)
           .then(function (user) {
-            console.log(user);
+            Session.create(user.id, user.name, user.admin,
+                           user.authentication_token);
+            console.log(Session);
           });
       };
 

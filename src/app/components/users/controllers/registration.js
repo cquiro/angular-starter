@@ -7,8 +7,7 @@ angular.module('librarium')
 
       self.submitForm = function (isValid) {
         if (isValid) {
-          dataService.addUser(newUser).then(function (user) {
-            console.log(user);
+          dataService.addUser(newUser).then(function () {
             $state.go('books');
           }, function (errors) {
             self.message = errors.statusText;

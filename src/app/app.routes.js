@@ -77,7 +77,7 @@ angular.module('librarium')
           },
           views: {
             main: {
-              templateUrl: '../app/components/users/sessions_new.html'
+              templateUrl: '../app/components/users/views/login.html'
             }
           }
         })

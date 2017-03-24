@@ -44,25 +44,24 @@ html(lang="en")
             li
               a(ui-sref='signup') 
                 | {{ 'SIGN_UP' | translate }}
+
             li(ng-controller="LogoutController as loutCtrl")
               a(ng-click='loutCtrl.destroySession()') 
                 | {{ 'LOG_OUT' | translate }} 
-            li.dropdown
-              a.dropdown-toggle(href='#'
-                                data-toggle='dropdown'
-                                role='button'
-                                aria-haspopup='true'
-                                aria-expanded='false')
+
+            li(uib-dropdown keyboard-nav)
+              a#dropdown(href='#' uib-dropdown-toggle)
                 | {{ 'LANGUAGE'| translate }}
                 span.caret
-                ul.dropdown-menu(role='menu'
-                                ng-controller='TranslationController')
-                  li
-                    a(ng-click="changeLanguage('es')")
-                        | {{ 'OPT_SPA' | translate }}
-                  li
-                    a(ng-click="changeLanguage('en')")
-                      | {{ 'OPT_ENG' | translate }}
+              ul.dropdown-menu(uib-dropdown-menu role='menu'
+                               aria-labelledby='dropdown')
+                li(role='menuitem' ng-controller='TranslationController')
+                  a(ng-click="changeLanguage('es')")
+                    | {{ 'OPT_SPA' | translate }}
+
+                li(role='menuitem' ng-controller='TranslationController')
+                  a(ng-click="changeLanguage('en')")
+                    | {{ 'OPT_ENG' | translate }}
 
     .container-fluid(ui-view="main")
     // inject:js

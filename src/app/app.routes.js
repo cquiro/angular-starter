@@ -79,7 +79,9 @@ angular.module('librarium')
           },
           views: {
             main: {
-              templateUrl: '../app/components/users/views/login.html'
+              templateUrl: '../app/components/users/views/login.html',
+              controller: 'LoginController',
+              controllerAs: 'linCtrl'
             }
           }
         })

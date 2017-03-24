@@ -1,6 +1,6 @@
 angular.module('librarium')
   .factory('UserPersistence', ['$cookies', function ($cookies) {
-    let userSession = { loggedin: true };
+    let userSession = { loggedin: false };
 
     return {
       setCookieData: function (session) {
@@ -13,7 +13,7 @@ angular.module('librarium')
       },
       clearCookieData: function () {
         userSession = {};
-        $cookie.remove('userSession');
+        $cookies.remove('userSession');
       }
     };
   }]);

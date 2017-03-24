@@ -16,7 +16,6 @@ div.container
         input.form-control(type="text"
                            name="name"
                            placeholder="Name"
-                           aria-describedby="basic-addon1"
                            id="inputName"
                            ng-model="regCtrl.form.name"
                            required)
@@ -31,7 +30,6 @@ div.container
         input.form-control(type="email"
                            name="email"
                            placeholder="Email"
-                           aria-describedby="basic-addon1"
                            id="inputEmail"
                            ng-model="regCtrl.form.email"
                            required)
@@ -48,7 +46,6 @@ div.container
         input.form-control(type="password"
                            name="password"
                            placeholder="Password"
-                           aria-describedby="basic-addon1"
                            id="inputPassword"
                            ng-model="regCtrl.form.password"
                            ng-minlength="6"
@@ -69,7 +66,6 @@ div.container
         input.form-control(type="password"
                            name="passwordConf"
                            placeholder="Password (again)"
-                           aria-describedby="basic-addon1"
                            id="inputPasswordConfirmation"
                            pw-check="inputPassword"
                            ng-model="regCtrl.form.password_confirmation"

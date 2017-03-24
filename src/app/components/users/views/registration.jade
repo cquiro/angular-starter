@@ -3,8 +3,8 @@ div.container
     div.panel-heading
       h2.text-center
         | Join Librarium!
-    form.panel-body(name="registrationForm",
-                    ng-submit="regCtrl.submitForm(registrationForm.$valid)",
+    form.panel-body(name="registrationForm"
+                    ng-submit="regCtrl.submitForm(registrationForm.$valid)"
                     novalidate)
 
       div.alert-danger.text-center(ng-show="regCtrl.message")
@@ -13,14 +13,14 @@ div.container
       div.form-group(ng-class="{ 'has-error': registrationForm.name.$invalid && registrationForm.name.$touched }")
         label(for="inputName")
           | Name
-        input.form-control(type="text",
-                           name="name",
-                           placeholder="Name",
-                           aria-describedby="basic-addon1",
-                           id="inputName",
-                           ng-model="regCtrl.form.name",
+        input.form-control(type="text"
+                           name="name"
+                           placeholder="Name"
+                           aria-describedby="basic-addon1"
+                           id="inputName"
+                           ng-model="regCtrl.form.name"
                            required)
-        div.help-block(ng-messages="registrationForm.name.$error",
+        div.help-block(ng-messages="registrationForm.name.$error"
                        ng-if="registrationForm.name.$touched")
           p(ng-message="required")
             | Your name is required
@@ -28,14 +28,14 @@ div.container
       div.form-group(ng-class="{ 'has-error': registrationForm.email.$invalid && registrationForm.email.$touched }")
         label(for="inputEmail")
           | Email
-        input.form-control(type="email",
-                           name="email",
-                           placeholder="Email",
-                           aria-describedby="basic-addon1",
-                           id="inputEmail",
-                           ng-model="regCtrl.form.email",
+        input.form-control(type="email"
+                           name="email"
+                           placeholder="Email"
+                           aria-describedby="basic-addon1"
+                           id="inputEmail"
+                           ng-model="regCtrl.form.email"
                            required)
-        div.help-block(ng-messages="registrationForm.email.$error",
+        div.help-block(ng-messages="registrationForm.email.$error"
                        ng-if="registrationForm.email.$touched")
           p(ng-message="required")
             | Email is required
@@ -45,17 +45,17 @@ div.container
       div.form-group(ng-class="{ 'has-error': registrationForm.password.$invalid && registrationForm.password.$touched }")
         label(for='inputPassword')
           | Password
-        input.form-control(type="password",
-                           name="password",
-                           placeholder="Password",
-                           aria-describedby="basic-addon1",
-                           id="inputPassword",
-                           ng-model="regCtrl.form.password",
-                           ng-minlength="6",
-                           ng-maxlength="128",
+        input.form-control(type="password"
+                           name="password"
+                           placeholder="Password"
+                           aria-describedby="basic-addon1"
+                           id="inputPassword"
+                           ng-model="regCtrl.form.password"
+                           ng-minlength="6"
+                           ng-maxlength="128"
                            required)
 
-        div.help-block(ng-messages="registrationForm.password.$error",
+        div.help-block(ng-messages="registrationForm.password.$error"
                        ng-if="registrationForm.password.$touched")
           p(ng-message="required")
             | Password is required
@@ -67,17 +67,17 @@ div.container
       div.form-group(ng-class="{ 'has-error': registrationForm.passwordConf.$invalid && registrationForm.passwordConf.$touched }")
         label(for="inputPasswordConfirmation")
           | Password Confirmation
-        input.form-control(type="password",
-                           name="passwordConf",
-                           placeholder="Password (again)",
-                           aria-describedby="basic-addon1",
-                           id="inputPasswordConfirmation",
-                           pw-check="inputPassword",
-                           ng-model="regCtrl.form.password_confirmation",
-                           ng-minlength="6",
-                           ng-maxlength="128",
+        input.form-control(type="password"
+                           name="passwordConf"
+                           placeholder="Password (again)"
+                           aria-describedby="basic-addon1"
+                           id="inputPasswordConfirmation"
+                           pw-check="inputPassword"
+                           ng-model="regCtrl.form.password_confirmation"
+                           ng-minlength="6"
+                           ng-maxlength="128"
                            required)
-        div.help-block(ng-messages="registrationForm.passwordConf.$error",
+        div.help-block(ng-messages="registrationForm.passwordConf.$error"
                        ng-if="registrationForm.passwordConf.$touched")
           p(ng-message="pwmatch")
             | Password and Password Confirmation don't match
@@ -88,5 +88,5 @@ div.container
           p(ng-message="maxlength")
             | Password is too long
 
-      button.btn.btn-blue.btn-md(type="submit", ng-disabled="registrationForm.$invalid")
+      button.btn.btn-blue.btn-md(type="submit" ng-disabled="registrationForm.$invalid")
         | Sign Up

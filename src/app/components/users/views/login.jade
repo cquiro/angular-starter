@@ -3,8 +3,8 @@ div.container
     div.panel-heading
       h2.text-center
         | {{ 'LOGIN_HEADER' | translate }}
-      form.panel-body(name="loginForm",
-                      ng-submit="linCtrl.submitForm(loginForm.$valid)",
+      form.panel-body(name="loginForm"
+                      ng-submit="linCtrl.submitForm(loginForm.$valid)"
                       novalidate)
 
         div.alert-danger.text-center(ng-show="linCtrl.message")
@@ -13,15 +13,15 @@ div.container
         div.form-group(ng-class="{ 'has-error': loginForm.email.$invalid && loginForm.email.$touched }")
           label(for="inputEmail")
             | Email
-          input.form-control(type="email",
-                             name="email",
-                             placeholder="Email",
-                             aria-describedby="basic-addon1",
-                             id="inputEmail",
-                             ng-model="linCtrl.form.email",
+          input.form-control(type="email"
+                             name="email"
+                             placeholder="Email"
+                             aria-describedby="basic-addon1"
+                             id="inputEmail"
+                             ng-model="linCtrl.form.email"
                              required)
-          div.help-block(ng-messages="loginForm.email.$error",
-                        ng-if="loginForm.email.$touched")
+          div.help-block(ng-messages="loginForm.email.$error"
+                         ng-if="loginForm.email.$touched")
             p(ng-message="required")
               | {{ 'REQUIRED_EMAIL_MSG' | translate }}
             p(ng-message="email")
@@ -30,17 +30,17 @@ div.container
         div.form-group(ng-class="{ 'has-error': loginForm.password.$invalid && loginForm.password.$touched }")
           label(for='inputPassword')
             | {{ 'PASSWORD' | translate }}
-          input.form-control(type="password",
-                             name="password",
-                             placeholder="{{ 'PASSWORD' | translate }}",
-                             aria-describedby="basic-addon1",
-                             id="inputPassword",
-                             ng-model="linCtrl.form.password",
+          input.form-control(type="password"
+                             name="password"
+                             placeholder="{{ 'PASSWORD' | translate }}"
+                             aria-describedby="basic-addon1"
+                             id="inputPassword"
+                             ng-model="linCtrl.form.password"
                              required)
-          div.help-block(ng-messages="loginForm.password.$error",
+          div.help-block(ng-messages="loginForm.password.$error"
                         ng-if="loginForm.password.$touched")
             p(ng-message="required")
               | {{ 'REQUIRED_PASSWORD_MSG' | translate }}
 
-        button.btn.btn-blue.btn-md(type="submit", ng-disabled="loginForm.$invalid")
+        button.btn.btn-blue.btn-md(type="submit" ng-disabled="loginForm.$invalid")
           | {{ 'LOG_IN' | translate }} 

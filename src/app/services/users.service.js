@@ -1,5 +1,6 @@
 angular.module('librarium')
   .factory('UsersService',
+
     ['Restangular', 'Session', function (Restangular, Session) {
       const urlBase = '/users';
       const usersService = {};
@@ -11,7 +12,6 @@ angular.module('librarium')
             Session.create(user.id, user.name, user.admin,
                            user.authentication_token);
             UserPersistence.setCookieData(JSON.stringify(Session.session));
-            // console.log(UserPersistence.getCookieData());
           });
       };
 

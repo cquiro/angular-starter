@@ -109,7 +109,7 @@ angular.module('librarium')
           url: '/users/edit',
           data: {
             permissions: {
-              only: ['ADMIN'],
+              only: ['USER'],
               redirectTo: 'login'
             }
           },

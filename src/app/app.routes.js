@@ -24,6 +24,12 @@ angular.module('librarium')
         })
         .state('new_book', {
           url: '/books/new',
+          data: {
+            permissions: {
+              only: ['ADMIN'],
+              redirectTo: 'books'
+            }
+          },
           views: {
             main: {
               templateUrl: '../app/components/books/new.html'
@@ -47,6 +53,12 @@ angular.module('librarium')
         })
         .state('edit_book', {
           url: '/books/:id/edit',
+          data: {
+            permissions: {
+              only: ['ADMIN'],
+              redirectTo: 'books'
+            }
+          },
           views: {
             main: {
               templateUrl: '../app/components/books/edit.html'
@@ -95,6 +107,12 @@ angular.module('librarium')
         })
         .state('edit_user', {
           url: '/users/edit',
+          data: {
+            permissions: {
+              only: ['ADMIN'],
+              redirectTo: 'login'
+            }
+          },
           views: {
             main: {
               templateUrl: '../app/components/users/edit.html'
@@ -103,6 +121,12 @@ angular.module('librarium')
         })
         .state('user', {
           url: '/users/:id',
+          data: {
+            permissions: {
+              only: ['USER'],
+              redirectTo: 'login'
+            }
+          },
           views: {
             main: {
               templateUrl: '../app/components/users/show.html',

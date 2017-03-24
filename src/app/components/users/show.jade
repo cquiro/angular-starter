@@ -1,0 +1,11 @@
+h4.home-title
+  | Here you will find the profile page of the user with id: {{ ctrlUserId.id }}
+br
+ul
+  li
+    a(ui-sref='.favorite_books')
+      | Favorite Books 
+  li
+    a(ui-sref='.wish_list')
+      | Wish List
+div(ui-view='')

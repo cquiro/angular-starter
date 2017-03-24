@@ -37,16 +37,33 @@ html(lang="en")
                 i.fa.fa-home
             li
               a(href='#')
-                | My Books
+                | {{ 'MY_BOOKS' | translate }}
             li
               a(ui-sref='login')
-                | Log In
+                | {{ 'LOG_IN' | translate }}
             li
               a(ui-sref='signup') 
-                | Sign Up
+                | {{ 'SIGN_UP' | translate }}
             li(ng-controller="LogoutController as loutCtrl")
               a(ng-click='loutCtrl.destroySession()') 
-                | Log Out
+                | {{ 'LOG_OUT' | translate }} 
+            li.dropdown
+              a.dropdown-toggle(href='#'
+                                data-toggle='dropdown'
+                                role='button'
+                                aria-haspopup='true'
+                                aria-expanded='false')
+                | {{ 'LANGUAGE'| translate }}
+                span.caret
+                ul.dropdown-menu(role='menu'
+                                ng-controller='TranslationController')
+                  li
+                    a(ng-click="changeLanguage('es')")
+                        | {{ 'OPT_SPA' | translate }}
+                  li
+                    a(ng-click="changeLanguage('en')")
+                      | {{ 'OPT_ENG' | translate }}
+
     .container-fluid(ui-view="main")
     // inject:js
     // endinject

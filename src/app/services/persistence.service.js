@@ -1,6 +1,5 @@
 angular.module('librarium')
   .factory('UserPersistence', function () {
-  // .factory('userpersistence', ['$cookies', function ($cookies) {
     let userSession = {};
 
     return {

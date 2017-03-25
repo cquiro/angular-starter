@@ -14,131 +14,141 @@ angular.module('librarium')
             }
           }
         })
-        .state('books', {
-          url: '/books',
+        .state('root', {
+          url: '/',
           views: {
-            main: {
+            header: {
+              templateUrl: '../app/components/header.html',
+              controller: 'ApplicationController as appCtrl'
+            },
+            'main': {
               templateUrl: '../app/components/books/index.html'
             }
           }
         })
-        .state('new_book', {
-          url: '/books/new',
+        .state('root.books', {
+          url: 'books',
+          views: {
+            'main@': {
+              templateUrl: '../app/components/books/index.html'
+            }
+          }
+        })
+        .state('root.new_book', {
+          url: 'books/new',
           data: {
             permissions: {
               only: ['ADMIN'],
-              redirectTo: 'books'
+              redirectTo: 'root.books'
             }
           },
           views: {
-            main: {
+            'main@': {
               templateUrl: '../app/components/books/new.html'
             }
           }
         })
-        .state('book', {
-          url: '/books/:id',
+        .state('root.book', {
+          url: 'books/:id',
           views: {
-            main: {
+            'main@': {
               templateUrl: '../app/components/books/show.html',
               controller: 'TemporaryIdController as ctrlBookId'
             },
-            'comments@book': {
+            'comments@root.book': {
               templateUrl: '../app/components/comments/index.html'
             },
-            'comments_new@book': {
+            'comments_new@root.book': {
               templateUrl: '../app/components/comments/new.html'
             }
           }
         })
-        .state('edit_book', {
-          url: '/books/:id/edit',
+        .state('root.edit_book', {
+          url: 'books/:id/edit',
           data: {
             permissions: {
               only: ['ADMIN'],
-              redirectTo: 'books'
+              redirectTo: 'root.books'
             }
           },
           views: {
-            main: {
+            'main@': {
               templateUrl: '../app/components/books/edit.html'
             }
           }
         })
-        .state('signup', {
-          url: '/signup',
+        .state('root.signup', {
+          url: 'signup',
           data: {
             permissions: {
               only: ['ANONYMOUS'],
-              redirectTo: 'books'
+              redirectTo: 'root.books'
             }
           },
           views: {
-            main: {
+            'main@': {
               templateUrl: '../app/components/users/views/registration.html',
-              controller: 'RegistrationController',
-              controllerAs: 'regCtrl'
+              controller: 'RegistrationController as regCtrl'
             }
           }
         })
-        .state('login', {
-          url: '/login',
+        .state('root.login', {
+          url: 'login',
           data: {
             permissions: {
               only: ['ANONYMOUS'],
-              redirectTo: 'books'
+              redirectTo: 'root.books'
             }
           },
           views: {
-            main: {
+            'main@': {
               templateUrl: '../app/components/users/views/login.html',
-              controller: 'LoginController',
-              controllerAs: 'linCtrl'
+              controller: 'LoginController as linCtrl'
             }
           }
         })
-        .state('users', {
-          url: '/users',
+        .state('root.users', {
+          url: 'users',
           views: {
-            main: {
+            'main@': {
               templateUrl: '../app/components/users/index.html'
             }
           }
         })
-        .state('edit_user', {
-          url: '/users/edit',
+        .state('root.edit_user', {
+          url: 'users/edit',
           data: {
             permissions: {
               only: ['USER'],
-              redirectTo: 'login'
+              redirectTo: 'root.login'
             }
           },
           views: {
-            main: {
+            'main@': {
               templateUrl: '../app/components/users/edit.html'
             }
           }
         })
-        .state('user', {
-          url: '/users/:id',
+        .state('root.user', {
+          url: 'users/:id',
           data: {
             permissions: {
               only: ['USER'],
-              redirectTo: 'login'
+              redirectTo: 'root.login'
             }
           },
           views: {
-            main: {
+            'main@': {
               templateUrl: '../app/components/users/show.html',
               controller: 'TemporaryIdController as ctrlUserId'
             }
           }
         })
-        .state('user.favorite_books', {
+        .state('root.user.favorite_books', {
           url: '/favorite_books',
           templateUrl: '../app/components/users/favorite_books.html'
         })
-        .state('user.wish_list', {
+        .state('root.user.wish_list', {
           url: '/wish_list',
           templateUrl: '../app/components/users/wish_list.html'
         });

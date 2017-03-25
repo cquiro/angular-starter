@@ -1,0 +1,21 @@
+nav.navbar.navbar-default
+  .container
+    .navbar-header
+      a.navbar-brand(ui-sref='books')
+        | Librarium
+    ul.nav.navbar-nav.navbar-right
+      li
+        a(ui-sref='root.books')
+          i.fa.fa-home
+      li
+        a(href='#')
+          | My Books
+      li
+        a(ui-sref='root.login')
+          | Log In
+      li
+        a(ui-sref='root.signup') 
+          | Sign Up
+      li
+        a(ng-click='appCtrl.destroySession()') 
+          | Log Out

@@ -1,11 +1,11 @@
 angular.module('librarium')
-  .controller('LogoutController',
+  .controller('ApplicationController',
     ['AuthService', '$state', function (authService, $state) {
       const self = this;
 
       self.destroySession = function () {
         authService.logout();
-        $state.go('books');
+        $state.go('root.books');
       };
     }]);
 

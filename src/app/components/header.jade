@@ -1,0 +1,36 @@
+nav.navbar.navbar-default
+  .container
+    .navbar-header
+      a.navbar-brand(ui-sref='root.books')
+        | Librarium
+    ul.nav.navbar-nav.navbar-right
+      li
+        a(ui-sref='root.books')
+          i.fa.fa-home
+      li
+        a(href='#')
+          | {{ 'MY_BOOKS' | translate }}
+      li
+        a(ui-sref='root.login')
+          | {{ 'LOG_IN' | translate }}
+      li
+        a(ui-sref='root.signup') 
+          | {{ 'SIGN_UP' | translate }}
+
+      li
+        a(ng-click='appCtrl.destroySession()') 
+          | {{ 'LOG_OUT' | translate }} 
+
+      li(uib-dropdown keyboard-nav)
+        a#dropdown(href='#' uib-dropdown-toggle)
+          | {{ 'LANGUAGE'| translate }}
+          span.caret
+        ul.dropdown-menu(uib-dropdown-menu role='menu'
+                          aria-labelledby='dropdown')
+          li(role='menuitem' ng-controller='TranslationController')
+            a(ng-click="changeLanguage('es')")
+              | {{ 'OPT_SPA' | translate }}
+
+          li(role='menuitem' ng-controller='TranslationController')
+            a(ng-click="changeLanguage('en')")
+              | {{ 'OPT_ENG' | translate }}

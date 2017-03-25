@@ -7,7 +7,6 @@ angular.module(
     'permission.ui',
     'librarium.directives',
     'ngMessages',
-    'ngCookies',
     'ui.bootstrap'
   ]
 );

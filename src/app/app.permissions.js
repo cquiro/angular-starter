@@ -2,11 +2,10 @@ angular.module('librarium').run(function (PermRoleStore, UserPersistence) {
   // logged in users
   PermRoleStore.defineRole('USER', function () {
     let result = false;
-    const sessionStr = JSON.stringify(UserPersistence.getUserData());
+    const user = UserPersistence.getUserData();
 
-    if (sessionStr !== undefined) {
-      const sessionObj = JSON.parse(sessionStr);
-      result = JSON.parse(sessionObj).loggedin;
+    if (user !== null) {
+      result = true;
     } else {
       result = false;
     }
@@ -31,11 +30,10 @@ angular.module('librarium').run(function (PermRoleStore, UserPersistence) {
   // logged in users who are admins
   PermRoleStore.defineRole('ADMIN', function () {
     let result = false;
-    const sessionStr = JSON.stringify(UserPersistence.getUserData());
+    const user = JSON.parse(UserPersistence.getUserData());
 
-    if (sessionStr !== undefined) {
-      const sessionObj = JSON.parse(sessionStr);
-      result = JSON.parse(sessionObj).isAdmin;
+    if (user !== null) {
+      result = user.admin;
     } else {
       result = false;
     }
@@ -46,11 +44,10 @@ angular.module('librarium').run(function (PermRoleStore, UserPersistence) {
   // logged in users who are not admins
   PermRoleStore.defineRole('BASIC', function () {
     let result = false;
-    const sessionStr = JSON.stringify(UserPersistence.getUserData());
+    const user = JSON.parse(UserPersistence.getUserData());
 
-    if (sessionStr !== undefined) {
-      const sessionObj = JSON.parse(sessionStr);
-      result = !JSON.parse(sessionObj).isAdmin;
+    if (user !== null) {
+      result = !user.admin;
     } else {
       result = false;
     }

@@ -27,10 +27,10 @@ nav.navbar.navbar-default
           span.caret
         ul.dropdown-menu(uib-dropdown-menu role='menu'
                           aria-labelledby='dropdown')
-          li(role='menuitem' ng-controller='TranslationController')
-            a(ng-click="changeLanguage('es')")
+          li(role='menuitem')
+            a(ng-click="appCtrl.changeLanguage('es')")
               | {{ 'OPT_SPA' | translate }}
 
-          li(role='menuitem' ng-controller='TranslationController')
-            a(ng-click="changeLanguage('en')")
+          li(role='menuitem')
+            a(ng-click="appCtrl.changeLanguage('en')")
               | {{ 'OPT_ENG' | translate }}

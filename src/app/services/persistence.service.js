@@ -1,19 +1,20 @@
 angular.module('librarium')
-  .factory('UserPersistence', ['$cookies', function ($cookies) {
+  .factory('UserPersistence', function () {
+  // .factory('userpersistence', ['$cookies', function ($cookies) {
     let userSession = {};
 
     return {
-      setCookieData: function (session) {
-        userSession = session;
-        $cookies.put('userSession', session);
+      setUserData: function (user) {
+        userSession = user;
+        localStorage.setItem('userSession', user);
       },
-      getCookieData: function () {
-        userSession = $cookies.get('userSession');
+      getUserData: function () {
+        userSession = localStorage.getItem('userSession');
         return userSession;
       },
-      clearCookieData: function () {
+      clearUserData: function () {
         userSession = {};
-        $cookies.remove('userSession');
+        localStorage.removeItem('userSession');
       }
     };
-  }]);
+  });

@@ -1,6 +1,6 @@
 angular.module('librarium')
   .factory('UsersService',
-    ['Restangular', 'Session', 'UserPersistence', function (Restangular, Session, UserPersistence) {
+    ['Restangular', 'UserPersistence', function (Restangular, UserPersistence) {
       const urlBase = '/users';
       const usersService = {};
 
@@ -8,9 +8,7 @@ angular.module('librarium')
         return Restangular.all(urlBase)
           .post(newUser)
           .then(function (user) {
-            Session.create(user.id, user.name, user.admin,
-                           user.authentication_token);
-            UserPersistence.setCookieData(JSON.stringify(Session.session));
+            UserPersistence.setUserData(JSON.stringify(user));
           });
       };
 

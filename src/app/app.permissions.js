@@ -1,8 +1,8 @@
-angular.module('librarium').run(function (PermRoleStore, Session, UserPersistence) {
+angular.module('librarium').run(function (PermRoleStore, UserPersistence) {
   // logged in users
   PermRoleStore.defineRole('USER', function () {
     let result = false;
-    const sessionStr = JSON.stringify(UserPersistence.getCookieData());
+    const sessionStr = JSON.stringify(UserPersistence.getUserData());
 
     if (sessionStr !== undefined) {
       const sessionObj = JSON.parse(sessionStr);
@@ -17,11 +17,10 @@ angular.module('librarium').run(function (PermRoleStore, Session, UserPersistenc
   // logged out users
   PermRoleStore.defineRole('ANONYMOUS', function () {
     let result = false;
-    const sessionStr = JSON.stringify(UserPersistence.getCookieData());
+    const user = UserPersistence.getUserData();
 
-    if (sessionStr !== undefined) {
-      const sessionObj = JSON.parse(sessionStr);
-      result = !JSON.parse(sessionObj).loggedin;
+    if (user !== null) {
+      result = false;
     } else {
       result = true;
     }
@@ -32,7 +31,7 @@ angular.module('librarium').run(function (PermRoleStore, Session, UserPersistenc
   // logged in users who are admins
   PermRoleStore.defineRole('ADMIN', function () {
     let result = false;
-    const sessionStr = JSON.stringify(UserPersistence.getCookieData());
+    const sessionStr = JSON.stringify(UserPersistence.getUserData());
 
     if (sessionStr !== undefined) {
       const sessionObj = JSON.parse(sessionStr);
@@ -47,7 +46,7 @@ angular.module('librarium').run(function (PermRoleStore, Session, UserPersistenc
   // logged in users who are not admins
   PermRoleStore.defineRole('BASIC', function () {
     let result = false;
-    const sessionStr = JSON.stringify(UserPersistence.getCookieData());
+    const sessionStr = JSON.stringify(UserPersistence.getUserData());
 
     if (sessionStr !== undefined) {
       const sessionObj = JSON.parse(sessionStr);

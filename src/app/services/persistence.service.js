@@ -1,6 +1,6 @@
 angular.module('librarium')
   .factory('UserPersistence', ['$cookies', function ($cookies) {
-    let userSession = { loggedin: false };
+    let userSession = {};
 
     return {
       setCookieData: function (session) {

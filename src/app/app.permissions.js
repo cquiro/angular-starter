@@ -1,14 +1,21 @@
-angular.module('librarium').run(function (PermRoleStore, Session, UserPersistence) {
+angular.module('librarium').run(function (PermRoleStore, IdentifyRole) {
   // logged in users
-  PermRoleStore.defineRole('USER', []);
+  PermRoleStore.defineRole('USER', function () {
+    return IdentifyRole.isUser();
+  });
+
   // logged out users
   PermRoleStore.defineRole('ANONYMOUS', function () {
-    const sessionStr = UserPersistence.getCookieData();
-    const sessionObj = JSON.parse(sessionStr);
-    return !sessionObj.loggedin;
+    return IdentifyRole.isAnonymous();
   });
-  // // logged in users who are admins
-  PermRoleStore.defineRole('ADMIN', []);
+
+  // logged in users who are admins
+  PermRoleStore.defineRole('ADMIN', function () {
+    return IdentifyRole.isAdmin();
+  });
+
   // logged in users who are not admins
-  PermRoleStore.defineRole('BASIC', []);
+  PermRoleStore.defineRole('BASIC', function () {
+    return IdentifyRole.isBasic();
+  });
 });

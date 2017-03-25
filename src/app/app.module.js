@@ -6,8 +6,7 @@ angular.module(
     'permission',
     'permission.ui',
     'librarium.directives',
-    'ngMessages',
-    'ngCookies'
+    'ngMessages'
   ]
 );
 

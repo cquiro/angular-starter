@@ -22,7 +22,10 @@ angular.module('librarium').config([
       LOG_OUT: 'Cerrar sesión',
       OPT_ENG: 'Inglés',
       OPT_SPA: 'Español',
-      LANGUAGE: 'Idioma'
+      LANGUAGE: 'Idioma',
+      BOOK_TITLE: 'Título',
+      BOOK_AUTHOR: 'Autor',
+      SLOGAN: 'Tu club de lectura virtual.'
     });
 
     $translateProvider.translations('en', {
@@ -45,7 +48,10 @@ angular.module('librarium').config([
       LOG_OUT: 'Log Out',
       OPT_ENG: 'English',
       OPT_SPA: 'Spanish',
-      LANGUAGE: 'Language'
+      LANGUAGE: 'Language',
+      BOOK_TITLE: 'Title',
+      BOOK_AUTHOR: 'Author',
+      SLOGAN: 'Your virtual book club.'
     });
 
     $translateProvider.preferredLanguage('en');

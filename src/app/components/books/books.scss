@@ -1,0 +1,23 @@
+$yellow-star: #EAC435; 
+
+.main-title {
+  padding-left: 7em;
+  h2 {
+    padding-left: 2em;
+  }
+}
+
+.book-item {
+  margin-bottom: 30px;
+}
+
+.caption {
+  p {
+    margin-bottom: 5px;
+  }
+}
+
+.fa-star,
+.fa-star-o {
+  color: $yellow-star;
+}

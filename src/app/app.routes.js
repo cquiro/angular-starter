@@ -22,7 +22,8 @@ angular.module('librarium')
               controller: 'ApplicationController as appCtrl'
             },
             'main': {
-              templateUrl: '../app/components/books/index.html'
+              templateUrl: '../app/components/books/views/index.html',
+              controller: 'BookListController'
             }
           }
         })
@@ -30,7 +31,8 @@ angular.module('librarium')
           url: 'books',
           views: {
             'main@': {
-              templateUrl: '../app/components/books/index.html'
+              templateUrl: '../app/components/books/views/index.html',
+              controller: 'BookListController'
             }
           }
         })
@@ -44,7 +46,7 @@ angular.module('librarium')
           },
           views: {
             'main@': {
-              templateUrl: '../app/components/books/new.html'
+              templateUrl: '../app/components/books/views/new.html'
             }
           }
         })
@@ -52,7 +54,7 @@ angular.module('librarium')
           url: 'books/:id',
           views: {
             'main@': {
-              templateUrl: '../app/components/books/show.html',
+              templateUrl: '../app/components/books/views/show.html',
               controller: 'TemporaryIdController as ctrlBookId'
             },
             'comments@root.book': {
@@ -73,7 +75,7 @@ angular.module('librarium')
           },
           views: {
             'main@': {
-              templateUrl: '../app/components/books/edit.html'
+              templateUrl: '../app/components/books/views/edit.html'
             }
           }
         })

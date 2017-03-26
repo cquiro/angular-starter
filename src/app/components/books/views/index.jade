@@ -1,0 +1,23 @@
+div.jumbotron
+  div.main-title
+    h1
+      | Librarium
+    h2
+      | {{ 'SLOGAN' | translate }}
+div.row
+  div.col-sm-6.col-md-3(ng-repeat="book in books")
+    div.book-item
+      img.center-block(ng-src="{{ book.cover }}")
+      div.caption.text-center
+        p
+          | {{ 'BOOK_TITLE' | translate }}: {{ book.title }}
+        p
+          | {{ 'BOOK_AUTHOR' | translate }}: {{ book.author }}
+        p
+          | {{ book.avg_score }} 
+          i.fa.fa-star.fa-lg(aria-hidden="true")
+          i.fa.fa-star-o.fa-lg(aria-hidden="true")
+          i.fa.fa-star-o.fa-lg(aria-hidden="true")
+          i.fa.fa-star-o.fa-lg(aria-hidden="true")
+          i.fa.fa-star-o.fa-lg(aria-hidden="true")
+

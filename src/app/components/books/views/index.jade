@@ -5,7 +5,7 @@ div.jumbotron
     h2
       | {{ 'SLOGAN' | translate }}
 div.row
-  div.col-sm-6.col-md-3(ng-repeat="book in books")
+  div.col-sm-6.col-md-3(ng-repeat="book in blistCtrl.books")
     div.book-item
       img.center-block(ng-src="{{ book.cover }}")
       div.caption.text-center
@@ -24,9 +24,9 @@ div.row
 div.text-center
   ul.pagination
     li
-      a(ng-click="booksPage(1)")
+      a(ng-click="blistCtrl.booksPage(1)")
         | 1
     li
-      a(ng-click="booksPage(2)")
+      a(ng-click="blistCtrl.booksPage(2)")
         | 2
 

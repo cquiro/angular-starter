@@ -23,7 +23,7 @@ angular.module('librarium')
             },
             'main': {
               templateUrl: '../app/components/books/views/index.html',
-              controller: 'BookListController'
+              controller: 'BookListController as blistCtrl'
             }
           }
         })
@@ -32,7 +32,7 @@ angular.module('librarium')
           views: {
             'main@': {
               templateUrl: '../app/components/books/views/index.html',
-              controller: 'BookListController'
+              controller: 'BookListController as blistCtrl'
             }
           }
         })

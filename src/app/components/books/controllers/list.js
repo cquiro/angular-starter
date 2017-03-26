@@ -1,14 +1,16 @@
 angular.module('librarium')
   .controller('BookListController',
-    ['$scope', 'BooksService', function ($scope, BooksService) {
+    ['BooksService', function (BooksService) {
+      const self = this;
       console.log("I'm in booklist controller");
-      $scope.books = BooksService.getBookList().then(function (books) {
-        $scope.books = books;
+
+      self.books = BooksService.getBookList().then(function (books) {
+        self.books = books;
       });
 
-      $scope.booksPage = function (page) {
+      self.booksPage = function (page) {
         BooksService.getBookList(page).then(function (books) {
-          $scope.books = books;
+          self.books = books;
         });
       };
     }]);

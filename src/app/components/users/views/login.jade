@@ -6,8 +6,8 @@ div.container
                       ng-submit="linCtrl.submitForm(loginForm.$valid)"
                       novalidate)
 
-      div.alert-danger.text-center(ng-show="linCtrl.message")
-        | {{ linCtrl.message }}
+        div.alert-danger.text-center(ng-show="linCtrl.message")
+          | {{ linCtrl.message }}
 
         div.form-group(ng-class="{ 'has-error': loginForm.email.$invalid && loginForm.email.$touched }")
           label(for="inputEmail")

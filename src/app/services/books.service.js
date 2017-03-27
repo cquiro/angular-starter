@@ -7,7 +7,7 @@ angular.module('librarium')
       booksService.getBooks = function (attributes = {}) {
         let searchParams = {};
 
-        attributes.page === undefined ? 1 : attributes.page;
+        if (attributes.page === undefined) { attributes.page = 1 };
 
         searchParams = attributes;
         searchParams.per_page = '24';

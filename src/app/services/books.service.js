@@ -6,9 +6,7 @@ angular.module('librarium')
 
       booksService.getBookList = function (pageNumber) {
         let page = pageNumber;
-        if (page === null) {
-          page = 1;
-        }
+        page === null ? 1 : pageNumber
 
         return Restangular.all(urlBase)
           .getList({ page: page, per_page: 24 });

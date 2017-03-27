@@ -1,21 +1,28 @@
 nav.navbar.navbar-default
   .container
     .navbar-header
-      a.navbar-brand(ui-sref='root')
+      a.navbar-brand(ui-sref='root.books')
         | Librarium
     ul.nav.navbar-nav.navbar-right
       li
         a(ui-sref='root.books')
           i.fa.fa-home
       li(permission permission-except="['ANONYMOUS']")
-        a(href='#')
-          | My Books
+        a(href='#' translate='MY_BOOKS')
       li(permission permission-only="['ANONYMOUS']")
-        a(ui-sref='root.login')
-          | Log In
+        a(ui-sref='root.login' translate='LOG_IN')
       li(permission permission-only="['ANONYMOUS']")
-        a(ui-sref='root.signup') 
-          | Sign Up
+        a(ui-sref='root.signup' translate='SIGN_UP')
       li(permission permission-except="['ANONYMOUS']")
-        a(ng-click='appCtrl.destroySession()') 
-          | Log Out
+        a(ng-click='appCtrl.destroySession()' translate='LOG_OUT')
+      li(uib-dropdown keyboard-nav)
+        a#dropdown(href='#' uib-dropdown-toggle)
+          | {{ 'LANGUAGE'| translate }}
+          span.caret
+        ul.dropdown-menu(uib-dropdown-menu
+                         role='menu'
+                         aria-labelledby='dropdown')
+          li(role='menuitem')
+            a(ng-click="appCtrl.changeLanguage('es')" translate='OPT_SPA')
+          li(role='menuitem')
+            a(ng-click="appCtrl.changeLanguage('en')" translate='OPT_ENG')

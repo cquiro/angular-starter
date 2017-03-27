@@ -1,8 +1,7 @@
 div.container
   div.panel.panel-default
     div.panel-heading
-      h2.text-center
-        | Log in to your Librarium account 
+      h2.text-center(translate='LOGIN_HEADER')
       form.panel-body(name="loginForm"
                       ng-submit="linCtrl.submitForm(loginForm.$valid)"
                       novalidate)
@@ -20,25 +19,22 @@ div.container
                              ng-model="linCtrl.form.email"
                              required)
           div.help-block(ng-messages="loginForm.email.$error"
-                        ng-if="loginForm.email.$touched")
-            p(ng-message="required")
-              | Email is required
-            p(ng-message="email")
-              | Enter a valid email
+                         ng-if="loginForm.email.$touched")
+            p(ng-message="required" translate='REQUIRED_EMAIL_MSG')
+            p(ng-message="email" translate='INVALID_EMAIL_MSG')
 
         div.form-group(ng-class="{ 'has-error': loginForm.password.$invalid && loginForm.password.$touched }")
-          label(for='inputPassword')
-            | Password
+          label(for='inputPassword' translate='PASSWORD')
           input.form-control(type="password"
                              name="password"
-                             placeholder="Password"
+                             placeholder="{{ 'PASSWORD' | translate }}"
                              id="inputPassword"
                              ng-model="linCtrl.form.password"
                              required)
           div.help-block(ng-messages="loginForm.password.$error"
-                        ng-if="loginForm.password.$touched")
-            p(ng-message="required")
-              | Password is required
+                         ng-if="loginForm.password.$touched")
+            p(ng-message="required" translate='REQUIRED_PASSWORD_MSG')
 
-        button.btn.btn-blue.btn-md(type="submit" ng-disabled="loginForm.$invalid")
-          | Log In
+        button.btn.btn-blue.btn-md(type="submit" 
+                                   ng-disabled="loginForm.$invalid"
+                                   translate='LOG_IN')

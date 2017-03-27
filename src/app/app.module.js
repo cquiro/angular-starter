@@ -6,7 +6,8 @@ angular.module(
     'permission',
     'permission.ui',
     'librarium.directives',
-    'ngMessages'
+    'ngMessages',
+    'ui.bootstrap'
   ]
 );
 

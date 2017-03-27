@@ -8,4 +8,5 @@ module.exports = [
   'angular-permission/dist/angular-permission.min.js',
   'angular-permission/dist/angular-permission-ui.min.js',
   'angular-messages/angular-messages.min.js',
+  'angular-bootstrap/ui-bootstrap.min.js'
 ];

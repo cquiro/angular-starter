@@ -8,8 +8,7 @@ angular.module('librarium')
         let page = pageNumber;
         page === null ? 1 : pageNumber
 
-        return Restangular.all(urlBase)
-          .getList({ page: page, per_page: 24 });
+        return Restangular.all(urlBase).getList({ page: page, per_page: 24 });
       };
 
       booksService.getBookSearch = function (attributes) {

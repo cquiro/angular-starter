@@ -7,17 +7,17 @@ angular.module('librarium')
         self.books = books;
       });
 
-      self.booksPage = function (page) {
-        BooksService.getBookList(page).then(function (books) {
-          self.books = books;
-        });
-      };
-
-      self.searchBooks = function () {
-        BooksService.getBookSearch(self.attributes).then(function (books) {
-          self.books = books;
-          self.attributes = {};
-        });
+      self.getBooks = function (page) {
+        if (page === undefined) {
+          BooksService.getBookSearch(self.attributes).then(function (books) {
+            self.books = books;
+            self.attributes = {};
+          });
+        } else {
+          BooksService.getBookList(page).then(function (books) {
+            self.books = books;
+          });
+        }
       };
 
       self.calculateStars = function (avgScore) {

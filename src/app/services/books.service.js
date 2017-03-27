@@ -14,5 +14,19 @@ angular.module('librarium')
           .getList({ page: page, per_page: 24 });
       };
 
+      booksService.getBookSearch = function (attributes) {
+        let searchParams = {};
+        if (attributes !== undefined) {
+          searchParams = attributes;
+        }
+
+        searchParams.page = '1';
+        searchParams.per_page = '24';
+
+        console.log(searchParams);
+        return Restangular.all(urlBase)
+          .getList(searchParams);
+      };
+
       return booksService;
     }]);

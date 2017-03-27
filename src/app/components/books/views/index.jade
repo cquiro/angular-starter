@@ -1,25 +1,82 @@
-div.jumbotron
-  div.main-title
-    h1
-      | Librarium
-    h2
-      | {{ 'SLOGAN' | translate }}
-div.row
-  div.col-sm-6.col-md-3(ng-repeat="book in blistCtrl.books")
-    div.book-item
-      img.center-block(ng-src="{{ book.cover }}")
-      div.caption.text-center
-        p
-          | {{ 'BOOK_TITLE' | translate }}: {{ book.title }}
-        p
-          | {{ 'BOOK_AUTHOR' | translate }}: {{ book.author }}
-        div(star-rating rating-value="blistCtrl.calculateStars(book.avg_score)")
-div.text-center
-  ul.pagination
-    li
-      a(ng-click="blistCtrl.booksPage(1)")
-        | 1
-    li
-      a(ng-click="blistCtrl.booksPage(2)")
-        | 2
+div.container
+  div.jumbotron
+    div.main-title
+      h1
+        | Librarium
+      h2
+        | {{ 'SLOGAN' | translate }}
+
+  div.panel.panel-default
+    form.panel-body(name="searchForm"
+                    novalidate)
+
+      div.form-group.input-group-sm
+        label(for="inputTitle")
+          | Title 
+        input.form-control(type="text"
+                           name="title"
+                           placeholder="Search by title"
+                           id="inputTitle"
+                           ng-model="blistCtrl.attributes.title")
+      div.form-group.input-group-sm
+        label(for="inputAuthor")
+          | Author 
+        input.form-control(type="text"
+                           name="author"
+                           placeholder="Search by author"
+                           id="inputAuthor"
+                           ng-model="blistCtrl.attributes.author")
+      div.form-group.input-group-sm
+        label(for="inputGenre")
+          | Genre 
+        input.form-control(type="text"
+                           name="genre"
+                           placeholder="Search by genre"
+                           id="inputAuthor"
+                           ng-model="blistCtrl.attributes.genre")
+      div.form-group.input-group-sm
+        label(for="inputYear")
+          | Year 
+        input.form-control(type="text"
+                           name="year"
+                           placeholder="Search by year"
+                           id="inputAuthor"
+                           ng-model="blistCtrl.attributes.year")
+      div.form-group.input-group-sm
+        label(for="inputMinRating")
+          | Minimum Rating
+        input.form-control(type="text"
+                           name="minRating"
+                           placeholder="Search by minimum rating"
+                           id="inputMinRating"
+                           ng-model="blistCtrl.attributes.min_score")
+      div.form-group.input-group-sm
+        label(for="inputMaxRating")
+          | Maximum Rating
+        input.form-control(type="text"
+                           name="maxRating"
+                           placeholder="Search by maximum rating"
+                           id="inputMaxRating"
+                           ng-model="blistCtrl.attributes.max_score")
+      button.btn.btn-blue.btn-sm(ng-click="blistCtrl.searchBooks()")
+        | Search
+
+  div.row
+    div.col-sm-6.col-md-3(ng-repeat="book in blistCtrl.books")
+      div.book-item
+        img.center-block(ng-src="{{ book.cover }}")
+        div.caption.text-center
+          p
+            | {{ 'BOOK_TITLE' | translate }}: {{ book.title }}
+          p
+            | {{ 'BOOK_AUTHOR' | translate }}: {{ book.author }}
+          div(star-rating rating-value="blistCtrl.calculateStars(book.avg_score)")
+  div.text-center
+    ul.pagination
+      li
+        a(ng-click="blistCtrl.booksPage(1)")
+          | 1
+      li
+        a(ng-click="blistCtrl.booksPage(2)")
+          | 2
 

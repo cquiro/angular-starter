@@ -14,6 +14,13 @@ angular.module('librarium')
         });
       };
 
+      self.searchBooks = function () {
+        BooksService.getBookSearch(self.attributes).then(function (books) {
+          self.books = books;
+          self.attributes = {};
+        });
+      };
+
       self.calculateStars = function (avgScore) {
         const stars = Math.round(avgScore / 2);
         return stars;

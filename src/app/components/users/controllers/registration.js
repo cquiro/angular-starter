@@ -8,7 +8,7 @@ angular.module('librarium')
       self.submitForm = function (isValid) {
         if (isValid) {
           usersService.addUser(newUser).then(function () {
-            $state.go('books');
+            $state.transitionTo('root', {}, { reload: true });
           }, function (errors) {
             self.message = errors.statusText;
           });

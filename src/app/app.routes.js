@@ -97,7 +97,7 @@ angular.module('librarium')
           data: {
             permissions: {
               only: ['ANONYMOUS'],
-              redirectTo: 'root.books'
+              redirectTo: 'root'
             }
           },
           views: {

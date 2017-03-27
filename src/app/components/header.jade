@@ -1,21 +1,21 @@
 nav.navbar.navbar-default
   .container
     .navbar-header
-      a.navbar-brand(ui-sref='books')
+      a.navbar-brand(ui-sref='root')
         | Librarium
     ul.nav.navbar-nav.navbar-right
       li
         a(ui-sref='root.books')
           i.fa.fa-home
-      li
+      li(permission permission-except="['ANONYMOUS']")
         a(href='#')
           | My Books
-      li
+      li(permission permission-only="['ANONYMOUS']")
         a(ui-sref='root.login')
           | Log In
-      li
+      li(permission permission-only="['ANONYMOUS']")
         a(ui-sref='root.signup') 
           | Sign Up
-      li
+      li(permission permission-except="['ANONYMOUS']")
         a(ng-click='appCtrl.destroySession()') 
           | Log Out

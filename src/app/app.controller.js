@@ -5,7 +5,7 @@ angular.module('librarium')
 
       self.destroySession = function () {
         authService.logout();
-        $state.go('root.books');
+        $state.transitionTo('root', {}, { reload: true });
       };
     }]);
 

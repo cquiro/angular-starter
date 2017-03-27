@@ -3,63 +3,56 @@ div.container
     div.main-title
       h1
         | Librarium
-      h2
-        | {{ 'SLOGAN' | translate }}
+      h2(translate='SLOGAN')
 
   div.panel.panel-default
     form.panel-body(name="searchForm"
                     novalidate)
 
       div.form-group.input-group-sm
-        label(for="inputTitle")
-          | {{ 'TITLE' | translate }} 
+        label(for="inputTitle" translate='TITLE')
         input.form-control(type="text"
                            name="title"
                            placeholder="{{ 'TITLE_PLACE' | translate }}"
                            id="inputTitle"
                            ng-model="blistCtrl.attributes.title")
       div.form-group.input-group-sm
-        label(for="inputAuthor")
-          | {{ 'AUTHOR' | translate }} 
+        label(for="inputAuthor" translate='AUTHOR') 
         input.form-control(type="text"
                            name="author"
                            placeholder="{{ 'AUTHOR_PLACE' | translate }}"
                            id="inputAuthor"
                            ng-model="blistCtrl.attributes.author")
       div.form-group.input-group-sm
-        label(for="inputGenre")
-          | {{ 'GENRE' | translate }} 
+        label(for="inputGenre" translate='GENRE') 
         input.form-control(type="text"
                            name="genre"
                            placeholder="{{ 'GENRE_PLACE' | translate }}"
                            id="inputAuthor"
                            ng-model="blistCtrl.attributes.genre")
       div.form-group.input-group-sm
-        label(for="inputYear")
-          | {{ 'YEAR' | translate }} 
+        label(for="inputYear" translate='YEAR') 
         input.form-control(type="text"
                            name="year"
                            placeholder="{{ 'YEAR_PLACE' | translate }}"
                            id="inputAuthor"
                            ng-model="blistCtrl.attributes.year")
       div.form-group.input-group-sm
-        label(for="inputMinRating")
-          | {{ 'MIN_RATING' | translate }}
+        label(for="inputMinRating" translate='MIN_RATING')
         input.form-control(type="text"
                            name="minRating"
                            placeholder="{{ 'MIN_RATING_PLACE' | translate }}"
                            id="inputMinRating"
                            ng-model="blistCtrl.attributes.min_score")
       div.form-group.input-group-sm
-        label(for="inputMaxRating")
-          | {{ 'MAX_RATING' | translate }}
+        label(for="inputMaxRating" translate='MAX_RATING')
         input.form-control(type="text"
                            name="maxRating"
                            placeholder="{{ 'MAX_RATING_PLACE' | translate }}"
                            id="inputMaxRating"
                            ng-model="blistCtrl.attributes.max_score")
-      button.btn.btn-blue.btn-sm(ng-click="blistCtrl.searchBooks()")
-        | {{ 'SEARCH' | translate }}
+      button.btn.btn-blue.btn-sm(ng-click="blistCtrl.searchBooks()"
+                                 translate='SEARCH')
 
   div.row
     div.col-sm-6.col-md-3(ng-repeat="book in blistCtrl.books")
@@ -70,7 +63,9 @@ div.container
             | {{ 'BOOK_TITLE' | translate }}: {{ book.title }}
           p
             | {{ 'BOOK_AUTHOR' | translate }}: {{ book.author }}
-          div(star-rating rating-value="blistCtrl.calculateStars(book.avg_score)")
+          div.yellow(star-rating
+              rating-value="blistCtrl.calculateStars(book.avg_score)")
+
   div.text-center
     ul.pagination
       li

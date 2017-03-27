@@ -21,7 +21,7 @@ angular.module('librarium')
       };
 
       self.calculateStars = function (avgScore) {
-        const stars = Math.round(avgScore);
+        const stars = avgScore;
         return stars;
-      };
+      }; 
     }]);

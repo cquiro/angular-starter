@@ -1,8 +1,7 @@
 div.container
   div.panel.panel-default
     div.panel-heading
-      h2.text-center
-        | {{ 'REGISTRATION_HEADER' | translate }}
+      h2.text-center(translate='REGISTRATION_HEADER')
     form.panel-body(name="registrationForm"
                     ng-submit="regCtrl.submitForm(registrationForm.$valid)"
                     novalidate)
@@ -11,8 +10,7 @@ div.container
         | {{ regCtrl.message }}
 
       div.form-group(ng-class="{ 'has-error': registrationForm.name.$invalid && registrationForm.name.$touched }")
-        label(for="inputName")
-          | {{ 'NAME' | translate }}
+        label(for="inputName" translate='NAME')
         input.form-control(type="text"
                            name="name"
                            placeholder="{{ 'NAME' | translate }}"
@@ -21,8 +19,7 @@ div.container
                            required)
         div.help-block(ng-messages="registrationForm.name.$error"
                        ng-if="registrationForm.name.$touched")
-          p(ng-message="required")
-            | {{ 'REQUIRED_NAME_MSG' | translate }}
+          p(ng-message="required" translate='REQUIRED_NAME_MSG')
 
       div.form-group(ng-class="{ 'has-error': registrationForm.email.$invalid && registrationForm.email.$touched }")
         label(for="inputEmail")
@@ -35,14 +32,11 @@ div.container
                            required)
         div.help-block(ng-messages="registrationForm.email.$error"
                        ng-if="registrationForm.email.$touched")
-          p(ng-message="required")
-            | {{ 'REQUIRED_EMAIL_MSG'| translate }}
-          p(ng-message="email")
-            | {{ 'INVALID_EMAIL_MSG' | translate }} 
+          p(ng-message="required" translate='REQUIRED_EMAIL_MSG')
+          p(ng-message="email" translate='INVALID_EMAIL_MSG')
 
       div.form-group(ng-class="{ 'has-error': registrationForm.password.$invalid && registrationForm.password.$touched }")
-        label(for='inputPassword')
-          | {{ 'PASSWORD' | translate }}
+        label(for='inputPassword' translate='PASSWORD')
         input.form-control(type="password"
                            name="password"
                            placeholder="{{ 'PASSWORD' | translate }}"
@@ -53,16 +47,12 @@ div.container
                            required)
         div.help-block(ng-messages="registrationForm.password.$error"
                        ng-if="registrationForm.password.$touched")
-          p(ng-message="required")
-            | {{ 'REQUIRED_PASSWORD_MSG' | translate }} 
-          p(ng-message="minlength")
-            | {{ 'SHORT_PASSWORD_MSG' | translate }}
-          p(ng-message="maxlength")
-            | {{ 'LONG_PASSWORD_MSG' | translate }}
+          p(ng-message="required" translate='REQUIRED_PASSWORD_MSG')
+          p(ng-message="minlength" translate='SHORT_PASSWORD_MSG')
+          p(ng-message="maxlength" translate='LONG_PASSWORD_MSG')
 
       div.form-group(ng-class="{ 'has-error': registrationForm.passwordConf.$invalid && registrationForm.passwordConf.$touched }")
-        label(for="inputPasswordConfirmation")
-          | {{ 'PASSWORD_CONFIRMATION' | translate }}
+        label(for="inputPasswordConfirmation" translate='PASSWORD_CONFIRMATION')
         input.form-control(type="password"
                            name="passwordConf"
                            placeholder="{{ 'PASSWORD_AGAIN' | translate }}"
@@ -74,14 +64,11 @@ div.container
                            required)
         div.help-block(ng-messages="registrationForm.passwordConf.$error"
                        ng-if="registrationForm.passwordConf.$touched")
-          p(ng-message="pwmatch")
-            | {{ 'PASSWORD_NOT_MATCH_MSG' | translate }}
-          p(ng-message="required")
-            | {{ 'REQUIRED_PASSWORD_MSG' | translate }}
-          p(ng-message="minlength")
-            | {{ 'SHORT_PASSWORD_MSG' | translate }}
-          p(ng-message="maxlength")
-            | {{ 'LONG_PASSWORD_MSG' | translate }}
+          p(ng-message="pwmatch" translate='PASSWORD_NOT_MATCH_MSG')
+          p(ng-message="required" translate='REQUIRED_PASSWORD_MSG')
+          p(ng-message="minlength" translate='SHORT_PASSWORD_MSG')
+          p(ng-message="maxlength" translate='LONG_PASSWORD_MSG')
 
-      button.btn.btn-blue.btn-md(type="submit" ng-disabled="registrationForm.$invalid")
-        | {{ 'SIGN_UP' | translate }}
+      button.btn.btn-blue.btn-md(type="submit"
+                                 ng-disabled="registrationForm.$invalid"
+                                 translate='SIGN_UP')

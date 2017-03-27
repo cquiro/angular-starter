@@ -8,7 +8,7 @@ angular.module('librarium')
       self.submitForm = function (isValid) {
         if (isValid) {
           authService.login(credentials).then(function () {
-            $state.go('root.books');
+            $state.transitionTo('root', {}, { reload: true });
           }, function (errors) {
             self.message = errors.statusText;
           });

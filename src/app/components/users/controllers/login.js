@@ -1,13 +1,13 @@
 angular.module('librarium')
-  .controller('RegistrationController',
-    ['UsersService', '$state', function (usersService, $state) {
+  .controller('LoginController',
+    ['AuthService', '$state', function (authService, $state) {
       const self = this;
       self.form = {};
-      const newUser = { user: self.form };
+      const credentials = { session: self.form };
 
       self.submitForm = function (isValid) {
         if (isValid) {
-          usersService.addUser(newUser).then(function () {
+          authService.login(credentials).then(function () {
             $state.transitionTo('root', {}, { reload: true });
           }, function (errors) {
             self.message = errors.statusText;

@@ -25,25 +25,7 @@ html(lang="en")
     link(href="/css/all.css", rel="stylesheet")
     base(href="/")
   body(ng-app="librarium")
-    header
-      nav.navbar.navbar-default
-        .container
-          .navbar-header
-            a.navbar-brand(ui-sref='books')
-              | Librarium
-          ul.nav.navbar-nav.navbar-right
-            li
-              a(ui-sref='books')
-                i.fa.fa-home
-            li
-              a(href='#')
-                | My Books
-            li
-              a(ui-sref='login')
-                | Log In
-            li
-              a(ui-sref='signup') 
-                | Sign Up
+    header(ui-view="header")
     .container-fluid(ui-view="main")
     // inject:js
     // endinject

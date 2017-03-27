@@ -1,2 +1,44 @@
-h4.home-title
-  | Here you will find a form to log in
+div.container
+  div.panel.panel-default
+    div.panel-heading
+      h2.text-center
+        | Log in to your Librarium account 
+      form.panel-body(name="loginForm"
+                      ng-submit="linCtrl.submitForm(loginForm.$valid)"
+                      novalidate)
+
+        div.alert-danger.text-center(ng-show="linCtrl.message")
+          | {{ linCtrl.message }}
+
+        div.form-group(ng-class="{ 'has-error': loginForm.email.$invalid && loginForm.email.$touched }")
+          label(for="inputEmail")
+            | Email
+          input.form-control(type="email"
+                             name="email"
+                             placeholder="Email"
+                             id="inputEmail"
+                             ng-model="linCtrl.form.email"
+                             required)
+          div.help-block(ng-messages="loginForm.email.$error"
+                        ng-if="loginForm.email.$touched")
+            p(ng-message="required")
+              | Email is required
+            p(ng-message="email")
+              | Enter a valid email
+
+        div.form-group(ng-class="{ 'has-error': loginForm.password.$invalid && loginForm.password.$touched }")
+          label(for='inputPassword')
+            | Password
+          input.form-control(type="password"
+                             name="password"
+                             placeholder="Password"
+                             id="inputPassword"
+                             ng-model="linCtrl.form.password"
+                             required)
+          div.help-block(ng-messages="loginForm.password.$error"
+                        ng-if="loginForm.password.$touched")
+            p(ng-message="required")
+              | Password is required
+
+        button.btn.btn-blue.btn-md(type="submit" ng-disabled="loginForm.$invalid")
+          | Log In

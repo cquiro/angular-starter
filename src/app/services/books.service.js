@@ -16,6 +16,7 @@ angular.module('librarium')
 
       booksService.getBookSearch = function (attributes) {
         let searchParams = {};
+
         if (attributes !== undefined) {
           searchParams = attributes;
         }
@@ -23,7 +24,6 @@ angular.module('librarium')
         searchParams.page = '1';
         searchParams.per_page = '24';
 
-        console.log(searchParams);
         return Restangular.all(urlBase)
           .getList(searchParams);
       };

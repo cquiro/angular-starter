@@ -2,7 +2,6 @@ angular.module('librarium')
   .controller('BookListController',
     ['BooksService', function (BooksService) {
       const self = this;
-      console.log("I'm in booklist controller");
 
       self.books = BooksService.getBookList().then(function (books) {
         self.books = books;
@@ -22,7 +21,7 @@ angular.module('librarium')
       };
 
       self.calculateStars = function (avgScore) {
-        const stars = Math.round(avgScore / 2);
+        const stars = Math.round(avgScore);
         return stars;
       };
     }]);

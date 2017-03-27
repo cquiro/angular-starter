@@ -12,54 +12,54 @@ div.container
 
       div.form-group.input-group-sm
         label(for="inputTitle")
-          | Title 
+          | {{ 'TITLE' | translate }} 
         input.form-control(type="text"
                            name="title"
-                           placeholder="Search by title"
+                           placeholder="{{ 'TITLE_PLACE' | translate }}"
                            id="inputTitle"
                            ng-model="blistCtrl.attributes.title")
       div.form-group.input-group-sm
         label(for="inputAuthor")
-          | Author 
+          | {{ 'AUTHOR' | translate }} 
         input.form-control(type="text"
                            name="author"
-                           placeholder="Search by author"
+                           placeholder="{{ 'AUTHOR_PLACE' | translate }}"
                            id="inputAuthor"
                            ng-model="blistCtrl.attributes.author")
       div.form-group.input-group-sm
         label(for="inputGenre")
-          | Genre 
+          | {{ 'GENRE' | translate }} 
         input.form-control(type="text"
                            name="genre"
-                           placeholder="Search by genre"
+                           placeholder="{{ 'GENRE_PLACE' | translate }}"
                            id="inputAuthor"
                            ng-model="blistCtrl.attributes.genre")
       div.form-group.input-group-sm
         label(for="inputYear")
-          | Year 
+          | {{ 'YEAR' | translate }} 
         input.form-control(type="text"
                            name="year"
-                           placeholder="Search by year"
+                           placeholder="{{ 'YEAR_PLACE' | translate }}"
                            id="inputAuthor"
                            ng-model="blistCtrl.attributes.year")
       div.form-group.input-group-sm
         label(for="inputMinRating")
-          | Minimum Rating
+          | {{ 'MIN_RATING' | translate }}
         input.form-control(type="text"
                            name="minRating"
-                           placeholder="Search by minimum rating"
+                           placeholder="{{ 'MIN_RATING_PLACE' | translate }}"
                            id="inputMinRating"
                            ng-model="blistCtrl.attributes.min_score")
       div.form-group.input-group-sm
         label(for="inputMaxRating")
-          | Maximum Rating
+          | {{ 'MAX_RATING' | translate }}
         input.form-control(type="text"
                            name="maxRating"
-                           placeholder="Search by maximum rating"
+                           placeholder="{{ 'MAX_RATING_PLACE' | translate }}"
                            id="inputMaxRating"
                            ng-model="blistCtrl.attributes.max_score")
       button.btn.btn-blue.btn-sm(ng-click="blistCtrl.searchBooks()")
-        | Search
+        | {{ 'SEARCH' | translate }}
 
   div.row
     div.col-sm-6.col-md-3(ng-repeat="book in blistCtrl.books")

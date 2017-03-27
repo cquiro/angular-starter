@@ -21,6 +21,7 @@
     "montserrat-webfont": "^1.0.3",
     "restangular": "^1.6.1",
     "jquery": "^3.2.1",
+    "angular-permission": "^5.2.2",
     "angular-messages": "^1.6.3"
   }
 }

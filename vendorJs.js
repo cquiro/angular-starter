@@ -5,5 +5,7 @@ module.exports = [
   'lodash/lodash.js',
   'restangular/src/restangular.js',
   'jquery/dist/jquery.min.js',
-  'angular-messages/angular-messages.min.js'
+  'angular-permission/dist/angular-permission.min.js',
+  'angular-permission/dist/angular-permission-ui.min.js',
+  'angular-messages/angular-messages.min.js',
 ];

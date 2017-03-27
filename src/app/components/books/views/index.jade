@@ -51,7 +51,7 @@ div.container
                            placeholder="{{ 'MAX_RATING_PLACE' | translate }}"
                            id="inputMaxRating"
                            ng-model="blistCtrl.attributes.max_score")
-      button.btn.btn-blue.btn-sm(ng-click="blistCtrl.getBooks()"
+      button.btn.btn-blue.btn-sm(ng-click="blistCtrl.searchBooks()"
                                  translate='SEARCH')
 
   div.row
@@ -69,9 +69,9 @@ div.container
   div.text-center
     ul.pagination
       li
-        a(ng-click="blistCtrl.getBooks(1)")
+        a(ng-click="blistCtrl.booksPage({ page: 1 })")
           | 1
       li
-        a(ng-click="blistCtrl.getBooks(2)")
+        a(ng-click="blistCtrl.booksPage({ page: 2 })")
           | 2
 

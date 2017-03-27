@@ -3,25 +3,25 @@ angular.module('librarium')
     ['BooksService', function (BooksService) {
       const self = this;
 
-      self.books = BooksService.getBookList().then(function (books) {
+      self.books = BooksService.getBooks().then(function (books) {
         self.books = books;
       });
 
-      self.getBooks = function (page) {
-        if (page === undefined) {
-          BooksService.getBookSearch(self.attributes).then(function (books) {
-            self.books = books;
-            self.attributes = {};
-          });
-        } else {
-          BooksService.getBookList(page).then(function (books) {
-            self.books = books;
-          });
-        }
+      self.booksPage = function (page) {
+        BooksService.getBooks(page).then(function (books) {
+          self.books = books;
+        });
+      };
+
+      self.searchBooks = function () {
+        BooksService.getBooks(self.attributes).then(function (books) {
+          self.books = books;
+          self.attributes = {};
+        });
       };
 
       self.calculateStars = function (avgScore) {
         const stars = avgScore;
         return stars;
-      }; 
+      };
     }]);

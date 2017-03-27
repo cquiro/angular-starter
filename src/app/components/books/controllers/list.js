@@ -13,4 +13,9 @@ angular.module('librarium')
           self.books = books;
         });
       };
+
+      self.calculateStars = function (avgScore) {
+        const stars = Math.round(avgScore / 2);
+        return stars;
+      };
     }]);

@@ -13,14 +13,7 @@ div.row
           | {{ 'BOOK_TITLE' | translate }}: {{ book.title }}
         p
           | {{ 'BOOK_AUTHOR' | translate }}: {{ book.author }}
-        p
-          | {{ book.avg_score }} 
-          i.fa.fa-star.fa-lg(aria-hidden="true")
-          i.fa.fa-star-o.fa-lg(aria-hidden="true")
-          i.fa.fa-star-o.fa-lg(aria-hidden="true")
-          i.fa.fa-star-o.fa-lg(aria-hidden="true")
-          i.fa.fa-star-o.fa-lg(aria-hidden="true")
-
+        div(star-rating rating-value="blistCtrl.calculateStars(book.avg_score)")
 div.text-center
   ul.pagination
     li

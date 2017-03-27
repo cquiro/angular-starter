@@ -4,8 +4,9 @@ angular.module('librarium')
       const urlBase = '/books';
       const booksService = {};
 
-      booksService.getBookList = function (page) {
-        if (page == null) {
+      booksService.getBookList = function (pageNumber) {
+        let page = pageNumber;
+        if (page === null) {
           page = 1;
         }
 

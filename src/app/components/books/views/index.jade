@@ -54,6 +54,7 @@ div.container
       button.btn.btn-blue.btn-sm(ng-click="blistCtrl.searchBooks()"
                                  translate='SEARCH')
 
+
   div.row
     div.col-sm-6.col-md-3(ng-repeat="book in blistCtrl.books")
       div.book-item
@@ -63,8 +64,10 @@ div.container
             | {{ 'BOOK_TITLE' | translate }}: {{ book.title }}
           p
             | {{ 'BOOK_AUTHOR' | translate }}: {{ book.author }}
-          div.yellow(star-rating
-              rating-value="blistCtrl.calculateStars(book.avg_score)")
+          span.stars.yellow(uib-rating
+                      ng-model="book.avg_score"
+                      max="5"
+                      read-only="true")    
 
   div.text-center
     ul.pagination

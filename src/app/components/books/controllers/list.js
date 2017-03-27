@@ -19,9 +19,4 @@ angular.module('librarium')
           self.attributes = {};
         });
       };
-
-      self.calculateStars = function (avgScore) {
-        const stars = avgScore;
-        return stars;
-      };
     }]);

@@ -1,7 +1,20 @@
 $yellow-star: #EAC435; 
 
+.glyphicon {
+  @extend .fa;
+  &.glyphicon-star {
+    @extend .fa-star;
+  }
+  &.glyphicon-star-empty {
+    @extend .fa-star-o;
+  }
+                      }
 .yellow {
   color: $yellow-star;
+}
+
+.stars {
+  font-size: 1.2em;
 }
 
 .main-title {

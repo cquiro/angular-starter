@@ -1,8 +1,7 @@
 div.container
   div.panel.panel-default
     div.panel-heading
-      h2.text-center
-        | {{ 'LOGIN_HEADER' | translate }}
+      h2.text-center(translate='LOGIN_HEADER')
       form.panel-body(name="loginForm"
                       ng-submit="linCtrl.submitForm(loginForm.$valid)"
                       novalidate)
@@ -21,14 +20,11 @@ div.container
                              required)
           div.help-block(ng-messages="loginForm.email.$error"
                          ng-if="loginForm.email.$touched")
-            p(ng-message="required")
-              | {{ 'REQUIRED_EMAIL_MSG' | translate }}
-            p(ng-message="email")
-              | {{ 'INVALID_EMAIL_MSG' | translate }}
+            p(ng-message="required" translate='REQUIRED_EMAIL_MSG')
+            p(ng-message="email" translate='INVALID_EMAIL_MSG')
 
         div.form-group(ng-class="{ 'has-error': loginForm.password.$invalid && loginForm.password.$touched }")
-          label(for='inputPassword')
-            | {{ 'PASSWORD' | translate }}
+          label(for='inputPassword' translate='PASSWORD')
           input.form-control(type="password"
                              name="password"
                              placeholder="{{ 'PASSWORD' | translate }}"
@@ -36,9 +32,9 @@ div.container
                              ng-model="linCtrl.form.password"
                              required)
           div.help-block(ng-messages="loginForm.password.$error"
-                        ng-if="loginForm.password.$touched")
-            p(ng-message="required")
-              | {{ 'REQUIRED_PASSWORD_MSG' | translate }}
+                         ng-if="loginForm.password.$touched")
+            p(ng-message="required" translate='REQUIRED_PASSWORD_MSG')
 
-        button.btn.btn-blue.btn-md(type="submit" ng-disabled="loginForm.$invalid")
-          | {{ 'LOG_IN' | translate }} 
+        button.btn.btn-blue.btn-md(type="submit" 
+                                   ng-disabled="loginForm.$invalid"
+                                   translate='LOG_IN')

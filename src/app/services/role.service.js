@@ -8,21 +8,17 @@ angular.module('librarium').factory('IdentifyRole',
 
       if (user !== null) {
         result = true;
-      } else {
-        result = false;
       }
 
       return result;
     };
 
     identifyRole.isAnonymous = function () {
-      let result = false;
+      let result = true;
       const user = UserPersistence.getUserData();
 
       if (user !== null) {
         result = false;
-      } else {
-        result = true;
       }
 
       return result;
@@ -34,8 +30,6 @@ angular.module('librarium').factory('IdentifyRole',
 
       if (user !== null) {
         result = user.admin;
-      } else {
-        result = false;
       }
 
       return result;
@@ -47,8 +41,6 @@ angular.module('librarium').factory('IdentifyRole',
 
       if (user !== null) {
         result = !user.admin;
-      } else {
-        result = false;
       }
 
       return result;

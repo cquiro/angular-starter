@@ -8,7 +8,8 @@ $yellow-star: #EAC435;
   &.glyphicon-star-empty {
     @extend .fa-star-o;
   }
-                      }
+}
+
 .yellow {
   color: $yellow-star;
 }

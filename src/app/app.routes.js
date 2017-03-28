@@ -142,7 +142,7 @@ angular.module('librarium')
           views: {
             'main@': {
               templateUrl: '../app/components/users/views/show.html',
-              controller: 'TemporaryIdController as ctrlUserId'
+              controller: 'UsersShowController as uShowCtrl'
             }
           }
         })

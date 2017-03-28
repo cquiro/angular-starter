@@ -65,9 +65,9 @@ div.container
           p
             | {{ 'BOOK_AUTHOR' | translate }}: {{ book.author }}
           span.stars.yellow(uib-rating
-                      ng-model="book.avg_score"
-                      max="5"
-                      read-only="true")    
+                            ng-model="book.avg_score"
+                            max="5"
+                            read-only="true")
 
   div.text-center
     ul.pagination

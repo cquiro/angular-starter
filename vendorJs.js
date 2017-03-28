@@ -9,5 +9,6 @@ module.exports = [
   'angular-permission/dist/angular-permission-ui.min.js',
   'angular-messages/angular-messages.min.js',
   'angular-bootstrap/ui-bootstrap.min.js',
-  'angular-bootstrap/ui-bootstrap-tpls.min.js'
+  'angular-bootstrap/ui-bootstrap-tpls.min.js',
+  'angular-xeditable/dist/js/xeditable.min.js'
 ];

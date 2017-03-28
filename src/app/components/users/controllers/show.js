@@ -6,4 +6,14 @@ angular.module('librarium')
 
       self.userProfile = UsersService.getUser(self.profileId)
         .then(function (user) { self.user = user; });
+
+      self.example = {
+        name: 'awesome name'
+      };
+
+      self.updateAttribute = function (attribute) {
+        console.log($stateParams.id);
+        UsersService.updateUser(attribute);
+          // .then(function (user) { $state.reload() });
+      };
     }]);

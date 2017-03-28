@@ -1,7 +1,7 @@
 angular.module('librarium')
   .controller('ApplicationController',
-    ['AuthService', '$state', '$translate', '$stateParams', 'UsersService', 'UserPersistence',
-      function (authService, $state, $translate, $stateParams, UsersService, UserPersistence) {
+    ['AuthService', '$state', '$translate', '$stateParams', 'UsersService',
+      function (authService, $state, $translate, $stateParams, UsersService) {
         const self = this;
         self.currentPageId = $stateParams.id;
 
@@ -14,7 +14,9 @@ angular.module('librarium')
           $translate.use(langKey);
         };
 
-        self.currentUser = JSON.parse(UserPersistence.getUserData());
+        self.currentUser = function () {
+          return UsersService.currentUser;
+        };
 
         self.userProfile = UsersService.getUser(self.currentPageId)
           .then(function (user) { self.user = user; });

@@ -1,10 +1,18 @@
 div.container
-  p
-    | {{ uShowCtrl.user.name }}
-  p
-    | {{ uShowCtrl.user.email }}
+  div
+    a(href="#"
+      blur="submit"
+      editable-text="uShowCtrl.user.name"
+      onbeforeSave="uShowCtrl.updateAttribute({ name: $data})"
+      onaftersave="appCtrl.currentUser()")
+      | {{ uShowCtrl.user.name }}
+  div
+    a(href="#"
+      blur="submit"
+      editable-email="uShowCtrl.user.email")
+      | {{ uShowCtrl.user.email }}
   p
     | {{ uShowCtrl.user.created_at }}
+  p
+    | {{ $parent.currentUser }}
 
-h4.home-title
-  | Here you will find the profile page of the user with id: {{ uShowCtrl.profileId }}

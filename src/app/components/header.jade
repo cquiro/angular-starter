@@ -21,7 +21,7 @@ nav.navbar.navbar-default
                          role='menu'
                          aria-labelledby='dropdown')
           li(role='menuitem')
-            a(ui-sref="root.user({ id: appCtrl.currentUser.id })")
+            a(ui-sref="root.user({ id: appCtrl.currentUser().id })")
               | My Profile 
           li(role='menuitem')
             a(ng-click='appCtrl.destroySession()' translate='LOG_OUT')

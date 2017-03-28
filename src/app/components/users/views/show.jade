@@ -1,14 +1,10 @@
 div.container
   p
-   | {{ uShowCtrl.user.name }}
+    | {{ uShowCtrl.user.name }}
+  p
+    | {{ uShowCtrl.user.email }}
+  p
+    | {{ uShowCtrl.user.created_at }}
+
 h4.home-title
   | Here you will find the profile page of the user with id: {{ uShowCtrl.profileId }}
-br
-ul
-  li
-    a(ui-sref='.favorite_books')
-      | Favorite Books 
-  li
-    a(ui-sref='.wish_list')
-      | Wish List
-div(ui-view='')

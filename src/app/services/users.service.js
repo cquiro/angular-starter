@@ -13,11 +13,7 @@ angular.module('librarium')
       };
 
       usersService.getUser = function (userId) {
-        return Restangular.all(urlBase)
-          .post(newUser)
-          .then(function (user) {
-            UserPersistence.setUserData(JSON.stringify(user));
-          });
+        return Restangular.one(urlBase, userId).get();
       };
 
       return usersService;

@@ -22,7 +22,8 @@ angular.module('librarium')
               controller: 'ApplicationController as appCtrl'
             },
             'main': {
-              templateUrl: '../app/components/books/index.html'
+              templateUrl: '../app/components/books/views/index.html',
+              controller: 'BookListController as blistCtrl'
             }
           }
         })
@@ -30,7 +31,8 @@ angular.module('librarium')
           url: 'books',
           views: {
             'main@': {
-              templateUrl: '../app/components/books/index.html'
+              templateUrl: '../app/components/books/views/index.html',
+              controller: 'BookListController as blistCtrl'
             }
           }
         })
@@ -44,7 +46,7 @@ angular.module('librarium')
           },
           views: {
             'main@': {
-              templateUrl: '../app/components/books/new.html'
+              templateUrl: '../app/components/books/views/new.html'
             }
           }
         })
@@ -52,7 +54,7 @@ angular.module('librarium')
           url: 'books/:id',
           views: {
             'main@': {
-              templateUrl: '../app/components/books/show.html',
+              templateUrl: '../app/components/books/views/show.html',
               controller: 'TemporaryIdController as ctrlBookId'
             },
             'comments@root.book': {
@@ -73,7 +75,7 @@ angular.module('librarium')
           },
           views: {
             'main@': {
-              templateUrl: '../app/components/books/edit.html'
+              templateUrl: '../app/components/books/views/edit.html'
             }
           }
         })
@@ -111,7 +113,7 @@ angular.module('librarium')
           url: 'users',
           views: {
             'main@': {
-              templateUrl: '../app/components/users/index.html'
+              templateUrl: '../app/components/users/views/index.html'
             }
           }
         })
@@ -125,7 +127,7 @@ angular.module('librarium')
           },
           views: {
             'main@': {
-              templateUrl: '../app/components/users/edit.html'
+              templateUrl: '../app/components/users/views/edit.html'
             }
           }
         })
@@ -139,18 +141,18 @@ angular.module('librarium')
           },
           views: {
             'main@': {
-              templateUrl: '../app/components/users/show.html',
+              templateUrl: '../app/components/users/views/show.html',
               controller: 'TemporaryIdController as ctrlUserId'
             }
           }
         })
         .state('root.user.favorite_books', {
           url: '/favorite_books',
-          templateUrl: '../app/components/users/favorite_books.html'
+          templateUrl: '../app/components/users/views/favorite_books.html'
         })
         .state('root.user.wish_list', {
           url: '/wish_list',
-          templateUrl: '../app/components/users/wish_list.html'
+          templateUrl: '../app/components/users/views/wish_list.html'
         });
 
       $locationProvider.html5Mode(true);

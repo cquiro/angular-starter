@@ -22,7 +22,23 @@ angular.module('librarium').config([
       LOG_OUT: 'Cerrar sesión',
       OPT_ENG: 'Inglés',
       OPT_SPA: 'Español',
-      LANGUAGE: 'Idioma'
+      LANGUAGE: 'Idioma',
+      BOOK_TITLE: 'Título',
+      BOOK_AUTHOR: 'Autor',
+      SLOGAN: 'Tu club de lectura virtual.',
+      TITLE: 'Título',
+      TITLE_PLACE: 'Busca por título',
+      AUTHOR: 'Autor',
+      AUTHOR_PLACE: 'Busca por autor',
+      GENRE: 'Género',
+      GENRE_PLACE: 'Busca por género',
+      YEAR: 'Año de publicación',
+      YEAR_PLACE: 'Busca por año de publicación',
+      MIN_RATING: 'Puntaje mínimo',
+      MIN_RATING_PLACE: 'Busca por puntaje mínimo',
+      MAX_RATING: 'Puntaje máximo',
+      MAX_RATING_PLACE: 'Busca por puntaje máximo',
+      SEARCH: 'Buscar'
     });
 
     $translateProvider.translations('en', {
@@ -45,7 +61,23 @@ angular.module('librarium').config([
       LOG_OUT: 'Log Out',
       OPT_ENG: 'English',
       OPT_SPA: 'Spanish',
-      LANGUAGE: 'Language'
+      LANGUAGE: 'Language',
+      BOOK_TITLE: 'Title',
+      BOOK_AUTHOR: 'Author',
+      SLOGAN: 'Your virtual book club.',
+      TITLE: 'Title',
+      TITLE_PLACE: 'Search by title',
+      AUTHOR: 'Author',
+      AUTHOR_PLACE: 'Search by author',
+      GENRE: 'Genre',
+      GENRE_PLACE: 'Search by genre',
+      YEAR: 'Year Published',
+      YEAR_PLACE: 'Search by year published',
+      MIN_RATING: 'Minimum Rating',
+      MIN_RATING_PLACE: 'Search by minimum rating',
+      MAX_RATING: 'Maximum Rating',
+      MAX_RATING_PLACE: 'Search by maximum rating',
+      SEARCH: 'Search'
     });
 
     $translateProvider.preferredLanguage('en');

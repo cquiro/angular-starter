@@ -3,16 +3,16 @@ div.container
     a(href="#"
       blur="submit"
       editable-text="uShowCtrl.user.name"
-      onbeforeSave="uShowCtrl.updateAttribute({ name: $data})")
+      onbeforeSave="uShowCtrl.updateAttribute({ name: $data })")
       | {{ uShowCtrl.user.name }}
   div
     a(href="#"
       blur="submit"
       editable-email="uShowCtrl.user.email"
-      onbeforeSave="uShowCtrl.updateAttribute({ email: $data})")
+      onbeforeSave="uShowCtrl.updateAttribute({ email: $data })")
       | {{ uShowCtrl.user.email }}
   p
-    | {{ uShowCtrl.user.created_at }}
+    | {{ uShowCtrl.user.created_at | date: 'fullDate' }}
   p
     | {{ $parent.currentUser }}
 

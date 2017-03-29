@@ -26,4 +26,4 @@ div.container
             onbeforeSave="uShowCtrl.updateAttribute({ email: $data })")
             | {{ uShowCtrl.user.email }}
         li.us-item#date
-          | Joined Librarium on {{ uShowCtrl.user.created_at | date: 'fullDate' }}
+          | {{ 'JOINED_LIBRARIUM' | translate }} {{ uShowCtrl.user.created_at | date: 'mediumDate' }}

@@ -4,10 +4,6 @@ angular.module('librarium')
       function (Restangular, UserPersistence, CurrentUserService) {
         const urlBase = '/users';
         const usersService = {};
-        // const userCreds = {
-        //   'X-User-Email': CurrentUserService.currentUser().email,
-        //   'X-User-Token': CurrentUserService.currentUser().authentication_token
-        // };
 
         usersService.currentUser = CurrentUserService.currentUser();
 

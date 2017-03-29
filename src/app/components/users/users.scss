@@ -1,0 +1,29 @@
+$librarium-blue: #4C6AB2;
+
+.us-back-img {
+  z-index: 0;
+  width: 100%;  
+  margin-bottom: 10px;
+}
+
+a h2 {
+  color: $librarium-blue;
+}
+
+.us-info {
+  margin-top: 21px;
+  .us-attr {
+    margin-top: 12px;
+    ul {
+      list-style-type: none;
+      .us-item {
+        margin-bottom: 12px;
+      }
+      #us-email {
+        color: $librarium-blue;
+        font-size: 1.3em;
+        border-bottom: none;
+      }
+    }
+  }
+}

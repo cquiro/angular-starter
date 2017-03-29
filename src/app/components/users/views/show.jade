@@ -1,18 +1,27 @@
 div.container
-  div
-    a(href="#"
-      blur="submit"
-      editable-text="uShowCtrl.user.name"
-      onbeforeSave="uShowCtrl.updateAttribute({ name: $data })")
-      | {{ uShowCtrl.user.name }}
-  div
-    a(href="#"
-      blur="submit"
-      editable-email="uShowCtrl.user.email"
-      onbeforeSave="uShowCtrl.updateAttribute({ email: $data })")
-      | {{ uShowCtrl.user.email }}
-  p
-    | {{ uShowCtrl.user.created_at | date: 'fullDate' }}
-  p
-    | {{ $parent.currentUser }}
-
+  div.row
+    div.col-md-12
+      img.us-back-img.center(src="http://lorempixel.com/850/280/nature/3/"
+                      alt="Profile image example")
+  div.row.us-info
+    div.col-md-2.col-md-offset-1
+      img.us-img-profile.thumbnail(src="http://lorempixel.com/180/180/people/3/"
+                                   alt="Profile image example")
+    div.col-md-9.us-attr
+      ul      
+        li.us-item
+          div
+            a(href="#"
+              blur="submit"
+              editable-text="uShowCtrl.user.name"
+              onbeforeSave="uShowCtrl.updateAttribute({ name: $data })")
+              h2
+                | {{ uShowCtrl.user.name }}
+        li.us-item
+          a#us-email(href="#"
+            blur="submit"
+            editable-email="uShowCtrl.user.email"
+            onbeforeSave="uShowCtrl.updateAttribute({ email: $data })")
+            | {{ uShowCtrl.user.email }}
+        li.us-item#date
+          | Joined Librarium on {{ uShowCtrl.user.created_at | date: 'fullDate' }}

@@ -13,7 +13,6 @@ angular.module('librarium')
       };
 
       self.updateAttribute = function (attribute) {
-        console.log($stateParams.id);
         UsersService.updateUser(attribute);
       };
 

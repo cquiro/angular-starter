@@ -143,6 +143,18 @@ angular.module('librarium')
             'main@': {
               templateUrl: '../app/components/users/views/show.html',
               controller: 'UsersShowController as uShowCtrl'
+            },
+            'favoriteBooks@root.user': {
+              templateUrl: '../app/components/users/views/favorite_books.html',
+              controller: 'FavoriteBooksController as fBooksCtrl'
+            },
+            'wishlist@root.user': {
+              templateUrl: '../app/components/users/views/wish_list.html',
+              controller: 'WishBooksController as wBooksCtrl'
+            },
+            'following@root.user': {
+              templateUrl: '../app/components/users/views/following.html',
+              controller: 'FollowingController as fwingCtrl'
             }
           }
         })

@@ -10,6 +10,11 @@ a h2 {
   color: $librarium-blue;
 }
 
+.us-stats-list {
+  list-style-type: none;
+  padding-left: 15px;
+}
+
 .us-info {
   margin-top: 21px;
   .us-attr {
@@ -26,6 +31,14 @@ a h2 {
       }
     }
   }
+}
+
+.us-stats {
+  margin-top: 21px;
+}
+
+.stat-column {
+  margin-top: 21px;
 }
 
 .us-item 

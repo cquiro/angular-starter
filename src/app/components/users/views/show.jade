@@ -27,3 +27,16 @@ div.container
             | {{ uShowCtrl.user.email }}
         li.us-item#date
           | {{ 'JOINED_LIBRARIUM' | translate }} {{ uShowCtrl.user.created_at | date: 'mediumDate' }}
+  div.panel.panel-default
+    div.panel-body
+      div.row.us-stats
+        div.col-md-4
+          h4.home-title(translate='FOLLOWING')
+        div.col-md-4
+          h4.home-title(translate='FAVORITE_BOOKS')
+        div.col-md-4
+          h4.home-title(translate='WISH_BOOKS')
+      div.row
+        div.col-md-4.stat-column.offset-col-md(ui-view='following')
+        div.col-md-4.stat-column(ui-view='favoriteBooks')
+        div.col-md-4.stat-column(ui-view='wishlist')

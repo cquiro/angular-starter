@@ -1,7 +1,7 @@
 div.container
   div.row
     div.col-md-12
-      img.us-back-img.center(src="http://lorempixel.com/850/280/nature/3/"
+      img.us-back-img.center(src="http://lorempixel.com/850/210/nature/3/"
                       alt="Profile image example")
   div.row.us-info
     div.col-md-2.col-md-offset-1
@@ -14,6 +14,7 @@ div.container
             a(href="#"
               blur="submit"
               editable-text="uShowCtrl.user.name"
+              edit-disabled="{{ uShowCtrl.ownsProfile() }}"
               onbeforeSave="uShowCtrl.updateAttribute({ name: $data })")
               h2
                 | {{ uShowCtrl.user.name }}
@@ -21,6 +22,7 @@ div.container
           a#us-email(href="#"
             blur="submit"
             editable-email="uShowCtrl.user.email"
+            edit-disabled="{{ uShowCtrl.ownsProfile() }}"
             onbeforeSave="uShowCtrl.updateAttribute({ email: $data })")
             | {{ uShowCtrl.user.email }}
         li.us-item#date

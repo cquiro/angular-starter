@@ -8,7 +8,7 @@ angular.module('librarium')
       };
 
       currentUserService.userCreds = function () {
-        const user = JSON.parse(UserPersistence.getUserData()); 
+        const user = JSON.parse(UserPersistence.getUserData());
         return {
           'X-User-Email': user.email,
           'X-User-Token': user.authentication_token

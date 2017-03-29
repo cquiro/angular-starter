@@ -1,2 +1,4 @@
-h4.home-title
-  | Here you will find a list of the books favorited by user with id: {{ ctrlUserId.id }}
+div.row
+  ul.us-stats-list
+    li(ng-repeat="favBook in fBooksCtrl.favBooksList")
+      | {{ favBook.title }}

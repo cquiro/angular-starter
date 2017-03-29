@@ -21,13 +21,23 @@ angular.module('librarium')
 
         usersService.updateUser = function (params) {
           const element = { user: params };
-          console.log(params);
           return Restangular.all(urlBase)
             .customOperation('put', 'update', params, CurrentUserService.userCreds(), element)
             .then(function (user) {
-              console.log(user);
               UserPersistence.setUserData(JSON.stringify(user));
             });
+        };
+
+        usersService.getFollowing = function (userId) {
+          return Restangular.one(urlBase, userId).getList('following', {}, CurrentUserService.userCreds());
+        };
+
+        usersService.getFavBooks = function (userId) {
+          return Restangular.one(urlBase, userId).getList('favorite_books', {}, CurrentUserService.userCreds());
+        };
+
+        usersService.getWishBooks = function (userId) {
+          return Restangular.one(urlBase, userId).getList('books_to_read', {}, CurrentUserService.userCreds());
         };
 
         return usersService;

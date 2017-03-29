@@ -4,17 +4,25 @@ nav.navbar.navbar-default
       a.navbar-brand(ui-sref='root.books')
         | Librarium
     ul.nav.navbar-nav.navbar-right
-      li
-        a(ui-sref='root.books')
-          i.fa.fa-home
-      li(permission permission-except="['ANONYMOUS']")
-        a(href='#' translate='MY_BOOKS')
       li(permission permission-only="['ANONYMOUS']")
         a(ui-sref='root.login' translate='LOG_IN')
       li(permission permission-only="['ANONYMOUS']")
         a(ui-sref='root.signup' translate='SIGN_UP')
+      li(uib-dropdown keyboard-nav permission permission-except="['ANONYMOUS']")
+        a#dropdown(href='#' uib-dropdown-toggle)
+          img.nav-img.img-circle(src="http://lorempixel.com/21/21/people/3/")
+          | {{ appCtrl.currentUser().name }}
+          span.caret
+        ul.dropdown-menu(uib-dropdown-menu
+                         role='menu'
+                         aria-labelledby='dropdown')
+          li(role='menuitem')
+            a(ui-sref="root.user({ id: appCtrl.currentUser().id })")
+              | My Profile 
+          li(role='menuitem')
+            a(ng-click='appCtrl.destroySession()' translate='LOG_OUT')
       li(permission permission-except="['ANONYMOUS']")
-        a(ng-click='appCtrl.destroySession()' translate='LOG_OUT')
+        a(href='#' translate='MY_BOOKS')
       li(uib-dropdown keyboard-nav)
         a#dropdown(href='#' uib-dropdown-toggle)
           | {{ 'LANGUAGE'| translate }}

@@ -1,11 +1,42 @@
-h4.home-title
-  | Here you will find the profile page of the user with id: {{ ctrlUserId.id }}
-br
-ul
-  li
-    a(ui-sref='.favorite_books')
-      | Favorite Books 
-  li
-    a(ui-sref='.wish_list')
-      | Wish List
-div(ui-view='')
+div.container
+  div.row
+    div.col-md-12
+      img.us-back-img.center(src="http://lorempixel.com/850/210/nature/3/"
+                      alt="Profile image example")
+  div.row.us-info
+    div.col-md-2.col-md-offset-1
+      img.us-img-profile.thumbnail(src="http://lorempixel.com/180/180/people/3/"
+                                   alt="Profile image example")
+    div.col-md-9.us-attr
+      ul      
+        li.us-item
+          div
+            a(href="#"
+              blur="submit"
+              editable-text="uShowCtrl.user.name"
+              edit-disabled="{{ uShowCtrl.ownsProfile() }}"
+              onbeforeSave="uShowCtrl.updateAttribute({ name: $data })")
+              h2
+                | {{ uShowCtrl.user.name }}
+        li.us-item
+          a#us-email(href="#"
+            blur="submit"
+            editable-email="uShowCtrl.user.email"
+            edit-disabled="{{ uShowCtrl.ownsProfile() }}"
+            onbeforeSave="uShowCtrl.updateAttribute({ email: $data })")
+            | {{ uShowCtrl.user.email }}
+        li.us-item#date
+          | {{ 'JOINED_LIBRARIUM' | translate }} {{ uShowCtrl.user.created_at | date: 'mediumDate' }}
+  div.panel.panel-default
+    div.panel-body
+      div.row.us-stats
+        div.col-md-4
+          h4.home-title(translate='FOLLOWING')
+        div.col-md-4
+          h4.home-title(translate='FAVORITE_BOOKS')
+        div.col-md-4
+          h4.home-title(translate='WISH_BOOKS')
+      div.row
+        div.col-md-4.stat-column.offset-col-md(ui-view='following')
+        div.col-md-4.stat-column(ui-view='favoriteBooks')
+        div.col-md-4.stat-column(ui-view='wishlist')

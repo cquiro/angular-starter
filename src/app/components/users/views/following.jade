@@ -1,0 +1,5 @@
+div.row
+  ul.us-stats-list
+    li(ng-repeat="followedUser in fwingCtrl.followingList")
+      a(ui-sref='root.user({ id: {{ followedUser.id }} })')
+        | {{ followedUser.name }}

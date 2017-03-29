@@ -38,7 +38,11 @@ angular.module('librarium').config([
       MIN_RATING_PLACE: 'Busca por puntaje mínimo',
       MAX_RATING: 'Puntaje máximo',
       MAX_RATING_PLACE: 'Busca por puntaje máximo',
-      SEARCH: 'Buscar'
+      SEARCH: 'Buscar',
+      JOINED_LIBRARIUM: 'Hace parte de Librarium desde',
+      FAVORITE_BOOKS: 'Libros que me gustan',
+      WISH_BOOKS: 'Libros que quiero leer',
+      FOLLOWING: 'Personas que sigo'
     });
 
     $translateProvider.translations('en', {
@@ -77,7 +81,11 @@ angular.module('librarium').config([
       MIN_RATING_PLACE: 'Search by minimum rating',
       MAX_RATING: 'Maximum Rating',
       MAX_RATING_PLACE: 'Search by maximum rating',
-      SEARCH: 'Search'
+      SEARCH: 'Search',
+      JOINED_LIBRARIUM: 'Joined Librarium on',
+      FAVORITE_BOOKS: 'Books I Like',
+      WISH_BOOKS: 'Books I Want to Read',
+      FOLLOWING: 'People I Follow'
     });
 
     $translateProvider.preferredLanguage('en');

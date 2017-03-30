@@ -133,6 +133,12 @@ angular.module('librarium')
         })
         .state('root.user', {
           url: 'users/:id',
+          resolve: {
+            user: ['$stateParams', 'UsersService',
+              function ($stateParams, UsersService) {
+                return UsersService.getUser($stateParams.id);
+            }]
+          },
           data: {
             permissions: {
               only: ['USER'],

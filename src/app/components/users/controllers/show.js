@@ -1,16 +1,10 @@
 angular.module('librarium')
   .controller('UsersShowController',
-    ['UsersService', '$stateParams', 'UserPersistence',
-    function (UsersService, $stateParams, UserPersistence) {
+    ['UsersService', '$stateParams', 'UserPersistence', 'user',
+    function (UsersService, $stateParams, UserPersistence, user) {
       const self = this;
-      self.profileId = $stateParams.id;
 
-      self.userProfile = UsersService.getUser(self.profileId)
-        .then(function (user) { self.user = user; });
-
-      self.example = {
-        name: 'awesome name'
-      };
+      self.user = user;
 
       self.updateAttribute = function (attribute) {
         UsersService.updateUser(attribute);

@@ -137,7 +137,7 @@ angular.module('librarium')
             user: ['$stateParams', 'UsersService',
               function ($stateParams, UsersService) {
                 return UsersService.getUser($stateParams.id);
-            }]
+              }]
           },
           data: {
             permissions: {

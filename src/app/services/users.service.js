@@ -1,11 +1,11 @@
 angular.module('librarium')
   .factory('UsersService',
-    ['Restangular', 'UserPersistence', 'CurrentUserService',
-      function (Restangular, UserPersistence, CurrentUserService) {
+    ['Restangular', 'UserPersistence',
+      function (Restangular, UserPersistence) {
         const urlBase = '/users';
         const usersService = {};
 
-        usersService.currentUser = CurrentUserService.currentUser();
+        usersService.currentUser = UserPersistence.currentUser();
 
         usersService.addUser = function (newUser) {
           return Restangular.all(urlBase)
@@ -23,22 +23,22 @@ angular.module('librarium')
           const element = { user: params };
 
           return Restangular.all(urlBase)
-            .customOperation('put', 'update', params, CurrentUserService.userCreds(), element)
+            .doPUT(element, 'update', params, UserPersistence.userCreds())
             .then(function (user) {
               UserPersistence.setUserData(JSON.stringify(user));
             });
         };
 
         usersService.getFollowing = function (userId) {
-          return Restangular.one(urlBase, userId).getList('following', {}, CurrentUserService.userCreds());
+          return Restangular.one(urlBase, userId).getList('following', {}, UserPersistence.userCreds());
         };
 
         usersService.getFavBooks = function (userId) {
-          return Restangular.one(urlBase, userId).getList('favorite_books', {}, CurrentUserService.userCreds());
+          return Restangular.one(urlBase, userId).getList('favorite_books', {}, UserPersistence.userCreds());
         };
 
         usersService.getWishBooks = function (userId) {
-          return Restangular.one(urlBase, userId).getList('books_to_read', {}, CurrentUserService.userCreds());
+          return Restangular.one(urlBase, userId).getList('books_to_read', {}, UserPersistence.userCreds());
         };
 
         return usersService;

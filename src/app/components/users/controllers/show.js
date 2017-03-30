@@ -1,7 +1,7 @@
 angular.module('librarium')
   .controller('UsersShowController',
-    ['UsersService', '$stateParams', 'CurrentUserService',
-    function (UsersService, $stateParams, CurrentUserService) {
+    ['UsersService', '$stateParams', 'UserPersistence',
+    function (UsersService, $stateParams, UserPersistence) {
       const self = this;
       self.profileId = $stateParams.id;
 
@@ -17,6 +17,6 @@ angular.module('librarium')
       };
 
       self.ownsProfile = function () {
-        return CurrentUserService.currentUser().id != $stateParams.id;
+        return UserPersistence.currentUser().id != $stateParams.id;
       };
     }]);
